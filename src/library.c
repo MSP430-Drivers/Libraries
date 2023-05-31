@@ -1,4 +1,4 @@
-#define WDTCTL *(unsigned int *)0x0120
+#include <MSP430_Registers.h>
 
 void main()
 {
