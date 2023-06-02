@@ -31,5 +31,8 @@ set(CMAKE_C_FLAGS "-mmcu=msp430g2553 -O2 -g -Wall")
 # Linker flags
 set(CMAKE_EXE_LINKER_FLAGS "-L ../linker -T ../linker/lnk_msp430g2553.cmd")
 
+add_subdirectory(lib/dio)
+
 # add_executable(Libraries src/library.c)
 add_executable(APPL${PROJECT_VERSION}.out ${SOURCES} ${SRC_DIR}/library.c)
+target_link_libraries(APPL${PROJECT_VERSION}.out dio_lib)

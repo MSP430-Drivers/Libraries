@@ -1,3 +1,7 @@
 /build
 /msp430-gcc-9.3.1.11_linux64
 /.vscode
+/ccs/.jxbrowser.userdata/
+/ccs/.metadata/
+/ccs/dvt/
+/ccs/RemoteSystemsTempFiles/
