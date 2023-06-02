@@ -1,21 +1,26 @@
 cmake_minimum_required(VERSION 3.22)
 project(dio_lib)
 
-# Agrega los archivos fuente de tu librería en la variable "sources"
-set(sources
+include_directories(../platform)
+
+# Set include directories and sources
+set(INCLUDE_DIRS ${CMAKE_CURRENT_SOURCE_DIR})
+set(SOURCES
     Dio.c
-    # Agrega aquí todos los archivos fuente de tu librería
 )
 
-# Agrega los archivos de encabezado en la variable "headers"
-set(headers
-    Dio.h
-    Dio_Types.h
-    # Agrega aquí todos los archivos de encabezado de tu librería
-)
+# Create static library
+add_library(${PROJECT_NAME} STATIC ${SOURCES})
 
-# Crea la biblioteca estática a partir de los archivos fuente
-add_library(dio_lib STATIC ${sources})
+# Configure library compilation options
+target_include_directories(${PROJECT_NAME} PUBLIC ${INCLUDE_DIRS})
 
-# Agrega la carpeta "include" como una ubicación de búsqueda de archivos de encabezado
-target_include_directories(dio_lib PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
+# Configure additional compilation options, if needed
+# target_compile_options(${PROJECT_NAME} PUBLIC ...)
+
+# Configure linking options, if needed
+# target_link_libraries(${PROJECT_NAME} ...)
+
+# Configure installation options, if needed
+# install(TARGETS ${PROJECT_NAME} DESTINATION lib)
+# install(FILES ... DESTINATION include)

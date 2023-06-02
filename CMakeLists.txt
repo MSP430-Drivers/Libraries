@@ -12,7 +12,7 @@ set(PROJECT_VERSION_MINOR 0)
 set(PROJECT_VERSION_PATCH 0)
 set(PROJECT_VERSION "${PROJECT_VERSION_MAJOR}_${PROJECT_VERSION_MINOR}_${PROJECT_VERSION_PATCH}")
 
-include_directories(lib/platform)
+# include_directories(lib/platform)
 
 # Sources
 set(SRC_DIR src)
@@ -26,13 +26,14 @@ include_directories(include)
 
 # Compiler flags
 set(CMAKE_C_STANDARD 99)
-set(CMAKE_C_FLAGS "-mmcu=msp430g2553 -O2 -g -Wall")
+set(CMAKE_C_FLAGS "-mmcu=msp430g2553 -O2 -g -Wall -std=c11 -Wl,-Map=output.map")
 
 # Linker flags
 set(CMAKE_EXE_LINKER_FLAGS "-L ../linker -T ../linker/lnk_msp430g2553.cmd")
 
+add_subdirectory(lib/platform)
 add_subdirectory(lib/dio)
 
 # add_executable(Libraries src/library.c)
 add_executable(APPL${PROJECT_VERSION}.out ${SOURCES} ${SRC_DIR}/library.c)
-target_link_libraries(APPL${PROJECT_VERSION}.out dio_lib)
+target_link_libraries(APPL${PROJECT_VERSION}.out dio_lib platform_lib)
