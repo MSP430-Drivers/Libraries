@@ -20,8 +20,9 @@ jobs:
     - name:  Unzip msp430-gcc-9.3.1.11
       run: |
         mkdir ~/Tools
-        mv msp430-gcc-9.3.1.11_linux64.tar.bz2 ~/Tools
-        tar -xjvf ~/Tools/msp430-gcc-9.3.1.11_linux64.tar.bz2
+        mkdir ~/Tools/msp430-gcc
+        mv msp430-gcc-9.3.1.11_linux64.tar.bz2 ~/Tools/msp430-gcc
+        tar -xjvf ~/Tools/msp430-gcc/msp430-gcc-9.3.1.11_linux64.tar.bz2
     - name: List of Tools
       run: |
         pwd
