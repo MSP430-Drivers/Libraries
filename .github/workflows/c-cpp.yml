@@ -24,7 +24,9 @@ jobs:
     - name: Move msp430-gcc to Tools
       run: mv msp430-gcc-9.3.1.11_linux64 ~/Tools
     - name: List of Tools
-      run: ls -l ~/Tools
+      run: |
+        pwd
+        ls -l ~/Tools
     - name: Set compiler
       run: |
         export CC=~/Tools/msp430-gcc/msp430-gcc-9.3.1.11_linux64/bin/msp430-elf-gcc
