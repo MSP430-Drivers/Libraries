@@ -25,6 +25,10 @@ jobs:
       run: mv msp430-gcc-9.3.1.11_linux64 ~/Tools
     - name: List of Tools
       run: ls -l ~/Tools
+    - name: Set compiler
+      run: |
+        export CC=~/Tools/msp430-gcc/msp430-gcc-9.3.1.11_linux64/bin/msp430-elf-gcc
+        export CXX=~/Tools/msp430-gcc/msp430-gcc-9.3.1.11_linux64/bin/msp430-elf-g++
     - name: CMakeLists build
       run: |
         mkdir build/
