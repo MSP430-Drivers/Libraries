@@ -5,6 +5,7 @@
 extern "C" {
 #endif
 
+void testFunc(void);
 
 
 #ifdef __cplusplus
