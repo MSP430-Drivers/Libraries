@@ -22,6 +22,7 @@ jobs:
         tar -xjvf msp430-gcc-9.3.1.11_linux64.tar.bz2
         mkdir ~/Tools
         mv msp430-gcc-9.3.1.11_linux64 ~/Tools
+        ls -l ~/Tools
     - name: CMakeLists build
       run: |
         mkdir build/
