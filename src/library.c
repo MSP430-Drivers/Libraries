@@ -1,5 +1,5 @@
 #include <MSP430_Registers.h>
-#include <Dio.h>
+#include <dio.h>
 #include <register_utils.h>
 
 int main()

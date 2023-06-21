@@ -14,7 +14,7 @@
  *  which are relevant for the ADC driver
  *********************************************************************************************************************/
 
-#include <Std_Types.h>
+#include <std_types.h>
 
 #ifndef MSP430_REGISTERS_H
 #define MSP430_REGISTERS_H

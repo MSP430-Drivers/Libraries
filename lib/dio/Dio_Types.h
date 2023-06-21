@@ -17,7 +17,7 @@
 #ifndef DIO_TYPES_H
 #define DIO_TYPES_H
 
-#include <Std_Types.h>
+#include <std_types.h>
 
 #define OK  (uint8)0x00;
 #define NOK (uint8)0x01;
@@ -74,6 +74,11 @@ typedef enum
   pullDown = 2
 
 } t_Ren;
+
+enum e_DioErrors
+{
+  u_dioDeinitialized = (uint8)1u
+};
 
 #ifdef __cplusplus
 }

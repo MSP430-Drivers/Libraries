@@ -6,7 +6,7 @@ include_directories(../platform)
 # Set include directories and sources
 set(INCLUDE_DIRS ${CMAKE_CURRENT_SOURCE_DIR})
 set(SOURCES
-    Dio.c
+    dio.c
 )
 
 # Create static library

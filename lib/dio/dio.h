@@ -1,33 +1,31 @@
 /**********************************************************************************************************************
- * \file Std_Types.h
+ * \file dio.h
  *
  * \author  Marco Aguilar
  *
- * \date Jul-16-2022
+ * \date Jun-19-2023
  *
  * \version 1.0 \n \n
  *
  * This file contains:
  *  - Definitions
  *  - Types
- *  which are relevant for std types
+ *  - Interface Prototypes
+ *  which are relevant for the GPIO Driver
  *********************************************************************************************************************/
 
-#ifndef STD_TYPES_H
-#define STD_TYPES_H
+#ifndef DIO_H
+#define DIO_H
+
+#include <Dio_Types.h>
+#include <std_types.h>
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-typedef signed char        sint8;
-typedef unsigned char      uint8;
 
-typedef signed short int   sint16;
-typedef unsigned short int uint16;
-
-typedef signed long int    sint32;
-typedef unsigned long int  uint32;
+uint8 DIO_u_Init(void);
 
 #ifdef __cplusplus
 }
