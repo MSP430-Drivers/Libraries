@@ -16,14 +16,14 @@ set(PROJECT_VERSION "${PROJECT_VERSION_MAJOR}_${PROJECT_VERSION_MINOR}_${PROJECT
 # include_directories(lib/platform)
 
 # Sources
-set(SRC_DIR src)
+set(SRC_DIR examples)
 
 set(SOURCES
     ${SRC_DIR}/library.c
 )
 
 # Include directories
-include_directories(include)
+include_directories(examples)
 
 # Compiler flags
 set(CMAKE_C_STANDARD 99)

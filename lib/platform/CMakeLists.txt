@@ -6,10 +6,13 @@ set(CMAKE_C_COMPILER $ENV{HOME}/Tools/msp430-gcc/msp430-gcc-9.3.1.11_linux64/bin
 
 set(CMAKE_C_FLAGS "-c -mmcu=msp430g2553")
 
+set(SRC_DIR src)
+
 # Set include directories and sources
-set(INCLUDE_DIRS ${CMAKE_CURRENT_SOURCE_DIR})
+set(INCLUDE_DIRS ${CMAKE_CURRENT_SOURCE_DIR}/include)
+
 set(SOURCES
-    register_utils.c
+    ${SRC_DIR}/register_utils.c
 )
 
 # Create static library
