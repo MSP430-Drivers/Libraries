@@ -31,8 +31,8 @@ typedef unsigned short int uint16;
 typedef signed long int    sint32;
 typedef unsigned long int  uint32;
 
-uint8 True = 1u;
-uint8 False = 0u;
+static uint8 const u_True = 1u;
+static uint8 const u_False = 0u;
 
 #ifdef __cplusplus
 }

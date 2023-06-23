@@ -40,7 +40,7 @@ uint8 DIO_u_Init(void)
         REG_v_WriteToReg(u_P1REN_ADDR,0xFFu);
         REG_v_WriteToReg(u_P2REN_ADDR,0xFFu);
 
-        u_DioIsInitialized = True;
+        u_DioIsInitialized = u_True;
     }
     else
     {

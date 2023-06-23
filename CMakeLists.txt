@@ -28,9 +28,11 @@ include_directories(include)
 # Compiler flags
 set(CMAKE_C_STANDARD 99)
 set(CMAKE_C_FLAGS "-mmcu=msp430g2553 -O2 -g -Wall -std=c11 -Wl,-Map=output.map")
+set(CMAKE_CXX_FLAGS "-mmcu=msp430g2553 -O2 -g -Wall -std=c11 -Wl,-Map=output.map")
 
 # Linker flags
-set(CMAKE_EXE_LINKER_FLAGS "-L ../linker -T ../linker/lnk_msp430g2553.cmd")
+set(CMAKE_EXE_LINKER_FLAGS "-T ../linker/lnk_msp430g2553.cmd")
+
 
 add_subdirectory(lib/platform)
 add_subdirectory(lib/dio)

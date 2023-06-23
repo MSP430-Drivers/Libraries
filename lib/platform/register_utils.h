@@ -7,7 +7,7 @@
 extern "C" {
 #endif
 
-inline void REG_v_WriteToReg(volatile uint16* pu_reg, uint16 u_val)
+static inline void REG_v_WriteToReg(volatile uint16* pu_reg, uint16 u_val)
 {
     if(pu_reg != NULL)
     {
@@ -19,7 +19,7 @@ inline void REG_v_WriteToReg(volatile uint16* pu_reg, uint16 u_val)
     }
 }
 
-inline uint16 REG_u_ReadFromReg(volatile uint16* pu_reg)
+static inline uint16 REG_u_ReadFromReg(volatile uint16* pu_reg)
 {
     if(pu_reg != NULL)
     {

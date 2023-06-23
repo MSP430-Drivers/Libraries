@@ -1,5 +1,10 @@
 cmake_minimum_required(VERSION 3.22)
+
 project(dio_lib)
+
+set(CMAKE_C_COMPILER $ENV{HOME}/Tools/msp430-gcc/msp430-gcc-9.3.1.11_linux64/bin/msp430-elf-gcc)
+
+set(CMAKE_C_FLAGS "-c -mmcu=msp430g2553")
 
 include_directories(../platform)
 
@@ -16,7 +21,7 @@ add_library(${PROJECT_NAME} STATIC ${SOURCES})
 target_include_directories(${PROJECT_NAME} PUBLIC ${INCLUDE_DIRS})
 
 # Configure additional compilation options, if needed
-# target_compile_options(${PROJECT_NAME} PUBLIC ...)
+target_compile_options(${PROJECT_NAME} PRIVATE -mmcu=msp430g2553)
 
 # Configure linking options, if needed
 # target_link_libraries(${PROJECT_NAME} ...)
