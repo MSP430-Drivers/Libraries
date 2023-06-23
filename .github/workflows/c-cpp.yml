@@ -23,11 +23,6 @@ jobs:
         mkdir ~/Tools
         mkdir ~/Tools/msp430-gcc
         mv msp430-gcc-9.3.1.11_linux64 ~/Tools/msp430-gcc
-    - name: List of Tools
-      run: |
-        cd ~/Tools/msp430-gcc
-        ls -l
-        cd /home/runner/work/Libraries/Libraries
     - name: Set compiler
       run: |
         export CC=~/Tools/msp430-gcc/msp430-gcc-9.3.1.11_linux64/bin/msp430-elf-gcc
