@@ -31,5 +31,7 @@ jobs:
       run: |
         mkdir build/
         cd build
-        cmake ..
+        export CC=~/Tools/msp430-gcc/msp430-gcc-9.3.1.11_linux64/bin/msp430-elf-gcc
+        export CXX=~/Tools/msp430-gcc/msp430-gcc-9.3.1.11_linux64/bin/msp430-elf-g++
+        cmake -G "Unix Makefiles" ..
         make
