@@ -25,7 +25,7 @@ jobs:
         tar -xjvf ~/Tools/msp430-gcc/msp430-gcc-9.3.1.11_linux64.tar.bz2
     - name: List of Tools
       run: |
-        cd /Tools/msp430-gcc/msp430-gcc-9.3.1.11_linux64/bin/
+        cd ~/Tools/msp430-gcc/msp430-gcc-9.3.1.11_linux64/bin/
         ls -l
         cd /home/runner/work/Libraries/Libraries
     - name: Set compiler
