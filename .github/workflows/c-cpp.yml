@@ -1,0 +1,37 @@
+name: CI
+
+on:
+  push:
+    branches: [ "main", "**" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Download msp430-gcc-9.3.1.11
+      uses: wei/wget@v1
+      with:
+        args: -O msp430-gcc-9.3.1.11_linux64.tar.bz2 https://dr-download.ti.com/software-development/ide-configuration-compiler-or-debugger/MD-LlCjWuAbzH/9.3.1.2/msp430-gcc-9.3.1.11_linux64.tar.bz2
+    - name:  Unzip msp430-gcc-9.3.1.11
+      run: |
+        tar -xjvf msp430-gcc-9.3.1.11_linux64.tar.bz2
+        mkdir ~/Tools
+        mkdir ~/Tools/msp430-gcc
+        mv msp430-gcc-9.3.1.11_linux64 ~/Tools/msp430-gcc
+    - name: Set compiler
+      run: |
+        export CC=~/Tools/msp430-gcc/msp430-gcc-9.3.1.11_linux64/bin/msp430-elf-gcc
+        export CXX=~/Tools/msp430-gcc/msp430-gcc-9.3.1.11_linux64/bin/msp430-elf-g++
+    - name: CMakeLists build
+      run: |
+        mkdir build/
+        cd build
+        export CC=~/Tools/msp430-gcc/msp430-gcc-9.3.1.11_linux64/bin/msp430-elf-gcc
+        export CXX=~/Tools/msp430-gcc/msp430-gcc-9.3.1.11_linux64/bin/msp430-elf-g++
+        cmake -G "Unix Makefiles" ..
+        make
