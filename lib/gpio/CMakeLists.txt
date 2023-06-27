@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.22)
 
-project(dio_lib)
+project(gpio_lib)
 
 set(CMAKE_C_COMPILER $ENV{HOME}/Tools/msp430-gcc/msp430-gcc-9.3.1.11_linux64/bin/msp430-elf-gcc)
 
@@ -14,7 +14,7 @@ set(SRC_DIR src)
 set(INCLUDE_DIRS ${CMAKE_CURRENT_SOURCE_DIR}/include)
 
 set(SOURCES
-    ${SRC_DIR}/dio.c
+    ${SRC_DIR}/gpio.c
 )
 
 # Create static library

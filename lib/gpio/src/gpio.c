@@ -1,5 +1,5 @@
 /**********************************************************************************************************************
- * \file dio.c
+ * \file gpio.c
  *
  * \author  Marco Aguilar
  *
@@ -14,7 +14,7 @@
  *  which are relevant for the DIO Driver
  *********************************************************************************************************************/
 
-#include <dio.h>
+#include <gpio.h>
 #include <msp430g2553_registers.h>
 #include <register_utils.h>
 

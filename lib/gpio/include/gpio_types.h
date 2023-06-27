@@ -1,9 +1,9 @@
 /**********************************************************************************************************************
- * \file Dio_Types.h
+ * \file gpio_types.h
  *
  * \author  Marco Aguilar
  *
- * \date Jul-16-2022
+ * \date Jun-26-2023
  *
  * \version 1.0 \n \n
  *
@@ -14,8 +14,8 @@
  *  which are relevant for the MSP's project
  *********************************************************************************************************************/
 
-#ifndef DIO_TYPES_H
-#define DIO_TYPES_H
+#ifndef GPIO_TYPES_H
+#define GPIO_TYPES_H
 
 #include <std_types.h>
 

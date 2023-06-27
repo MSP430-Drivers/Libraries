@@ -1,5 +1,5 @@
 /**********************************************************************************************************************
- * \file dio.h
+ * \file gpio.h
  *
  * \author  Marco Aguilar
  *
@@ -14,10 +14,10 @@
  *  which are relevant for the GPIO Driver
  *********************************************************************************************************************/
 
-#ifndef DIO_H
-#define DIO_H
+#ifndef GPIO_H
+#define GPIO_H
 
-#include <Dio_Types.h>
+#include <gpio_types.h>
 #include <std_types.h>
 
 #ifdef __cplusplus
