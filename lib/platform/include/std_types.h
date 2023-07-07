@@ -22,17 +22,19 @@ extern "C" {
 
 #define NULL ((void*)0)
 
-typedef signed char        sint8;
-typedef unsigned char      uint8;
+typedef signed char   sint8;
+typedef unsigned char uint8;
 
 typedef signed short int   sint16;
 typedef unsigned short int uint16;
 
-typedef signed long int    sint32;
-typedef unsigned long int  uint32;
+typedef signed long int   sint32;
+typedef unsigned long int uint32;
 
-static uint8 const u_True = 1u;
-static uint8 const u_False = 0u;
+static const uint8 u_True  = 1u;
+static const uint8 u_False = 0u;
+static const uint8 u_OK    = 0u;
+static const uint8 u_NOK   = 0u;
 
 #ifdef __cplusplus
 }

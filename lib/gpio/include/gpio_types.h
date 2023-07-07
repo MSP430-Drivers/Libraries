@@ -19,66 +19,67 @@
 
 #include <std_types.h>
 
-#define OK  (uint8)0x00;
-#define NOK (uint8)0x01;
-
 #ifdef __cplusplus
 extern "C" {
 #endif
 
 typedef enum
 {
-  bit0 = 1u,
-  bit1 = 2u,
-  bit2 = 4u,
-  bit3 = 8u,
-  bit4 = 16u,
-  bit5 = 32u,
-  bit6 = 64u,
-  bit7 = 128u,
-  bND  = 0xFF // No defined
-} t_PortPin;
+  pinNotInit = (uint8)0u,
+  pinInit    = (uint8)1u,
+  pinConf    = (uint8)2u
+} t_PortPinStat;
 
 typedef enum
 {
-  port1 = 0,
-  port2 = 1,
-  pND   = 0xFF // No defined
-} t_Port;
-
-typedef enum
-{
-  input  = 0,
-  output = 1,
-  dND    = 0xFF // No defined
+  input  = (uint8)0u,
+  output = (uint8)1u
 } t_PinDir;
 
 typedef enum
 {
-  gpio      = 0,
-  primary   = 1,
-  secondary = 2,
-  fND       = 0xFF // No defined
+  dio       = (uint8)0u,
+  primary   = (uint8)1u,
+  secondary = (uint8)2u
 } t_FunctionSelect;
 
 typedef enum
 {
-  low  = 0,
-  high = 1
-} t_PinState;
+  disabled = (uint8)0u,
+  enable   = (uint8)1u
+} t_Ren;
 
 typedef enum
 {
-  disabled = 0,
-  pullUp   = 1,
-  pullDown = 2
+  pullDown = (uint8)0u,
+  pullUp   = (uint8)1u
+} t_ResType;
 
-} t_Ren;
-
-enum e_DioErrors
+typedef enum
 {
-  u_dioDeinitialized = (uint8)1u
-};
+  pin0   = (uint8)0u,
+  pin1   = (uint8)1u,
+  pin2   = (uint8)2u,
+  pin3   = (uint8)3u,
+  pin4   = (uint8)4u,
+  pin5   = (uint8)5u,
+  pin6   = (uint8)6u,
+  pin7   = (uint8)7u,
+  pinMax = (uint8)8u
+} t_Pin;
+
+typedef enum
+{
+  port1   = (uint8)0u,
+  port2   = (uint8)1u,
+  portMax = (uint8)2u
+} t_Port;
+
+typedef enum
+{
+  low  = (uint8)0u,
+  high = (uint8)1u
+} t_PinState;
 
 #ifdef __cplusplus
 }
