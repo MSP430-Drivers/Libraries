@@ -23,12 +23,14 @@ extern "C" {
 #endif
 
 static uint8           u_DioIsInitialized;
-volatile uint16* const pu_PXDIR_ADDR[2] = { u_P1DIR_ADDR, u_P2DIR_ADDR };
-volatile uint16* const pu_PXREN_ADDR[2] = { u_P1REN_ADDR, u_P2REN_ADDR };
-volatile uint16* const pu_PXOUT_ADDR[2] = { u_P1OUT_ADDR, u_P2OUT_ADDR };
-volatile uint16* const pu_PXIN_ADDR[2]  = { u_P1IN_ADDR, u_P1IN_ADDR };
+volatile uint16* const pu_PXDIR_ADDR[2]  = { u_P1DIR_ADDR, u_P2DIR_ADDR };
+volatile uint16* const pu_PXREN_ADDR[2]  = { u_P1REN_ADDR, u_P2REN_ADDR };
+volatile uint16* const pu_PXOUT_ADDR[2]  = { u_P1OUT_ADDR, u_P2OUT_ADDR };
+volatile uint16* const pu_PXIN_ADDR[2]   = { u_P1IN_ADDR, u_P1IN_ADDR };
+volatile uint16* const pu_PXSEL_ADDR[2]  = { u_P1SEL_ADDR, u_P2SEL_ADDR };
+volatile uint16* const pu_PXSEL2_ADDR[2] = { u_P1SEL2_ADDR, u_P2SEL2_ADDR };
 
-void GPIO_u_Init(void)
+void GPIO_v_Init(void)
 {
   if(!u_DioIsInitialized)
   {
@@ -60,7 +62,8 @@ void GPIO_u_Init(void)
   }
 }
 
-void GPIO_t_SetUpPin(t_Port e_port, t_Pin e_pin, t_PinDir e_dir)
+void GPIO_v_SetUpPin(t_Port e_port, t_Pin e_pin, t_PinDir e_dir, t_FunctionSelect e_funSel)
+// void GPIO_v_SetUpPin(t_Port e_port, t_Pin e_pin, t_PinDir e_dir)
 {
   if(u_True == u_DioIsInitialized)
   {
@@ -74,6 +77,21 @@ void GPIO_t_SetUpPin(t_Port e_port, t_Pin e_pin, t_PinDir e_dir)
       else
       {
         REG_v_ClearBit(pu_PXDIR_ADDR[e_port], e_pin);
+      }
+      switch(e_funSel)
+      {
+        case primary:
+          REG_v_ClearBit(pu_PXSEL2_ADDR[e_port], e_pin);
+          REG_v_SetBit(pu_PXSEL_ADDR[e_port], e_pin);
+          break;
+        case secondary:
+          REG_v_SetBit(pu_PXSEL2_ADDR[e_port], e_pin);
+          REG_v_SetBit(pu_PXSEL_ADDR[e_port], e_pin);
+          break;
+        default:
+          REG_v_ClearBit(pu_PXSEL2_ADDR[e_port], e_pin);
+          REG_v_ClearBit(pu_PXSEL_ADDR[e_port], e_pin);
+          break;
       }
       au_portPinStat[e_port][e_pin] = pinConf;
     }
@@ -90,7 +108,7 @@ void GPIO_t_SetUpPin(t_Port e_port, t_Pin e_pin, t_PinDir e_dir)
   }
 }
 
-void GPIO_t_ResConf(t_Port e_port, t_Pin e_pin, t_Ren e_ren, t_ResType e_resType)
+void GPIO_v_ResConf(t_Port e_port, t_Pin e_pin, t_Ren e_ren, t_ResType e_resType)
 {
   if(au_portPinStat[e_port][e_pin] == pinConf)
   {
@@ -135,7 +153,7 @@ t_PinState GPIO_t_ReadPin(t_Port e_port, t_Pin e_pin)
   return e_retState;
 }
 
-void GPIO_t_WritePin(t_Port e_port, t_Pin e_pin, t_PinState e_pinState)
+void GPIO_v_WritePin(t_Port e_port, t_Pin e_pin, t_PinState e_pinState)
 {
   if(au_portPinStat[e_port][e_pin] == pinConf)
   {

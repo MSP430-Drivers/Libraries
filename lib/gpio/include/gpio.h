@@ -26,15 +26,18 @@ extern "C" {
 
 static uint8 au_portPinStat[portMax][pinMax] = { { pinNotInit } };
 
-void GPIO_u_Init(void);
+void GPIO_v_Init(void);
 
-void GPIO_t_SetUpPin(t_Port e_port, t_Pin e_pin, t_PinDir e_dir);
+// void GPIO_v_SetUpPin(t_Port e_port, t_Pin e_pin, t_PinDir e_dir);
 
-void GPIO_t_ResConf(t_Port e_port, t_Pin e_pin, t_Ren e_ren, t_ResType e_resType);
+void GPIO_v_ResConf(t_Port e_port, t_Pin e_pin, t_Ren e_ren, t_ResType e_resType);
 
 t_PinState GPIO_t_ReadPin(t_Port e_port, t_Pin e_pin);
 
-void GPIO_t_WritePin(t_Port e_port, t_Pin e_pin, t_PinState e_pinState);
+void GPIO_v_WritePin(t_Port e_port, t_Pin e_pin, t_PinState e_pinState);
+
+void GPIO_v_SetPinFunc(t_Port e_port, t_Pin e_pin, t_PinState e_pinState);
+void GPIO_v_SetUpPin(t_Port e_port, t_Pin e_pin, t_PinDir e_dir, t_FunctionSelect e_funSel);
 
 #ifdef __cplusplus
 }

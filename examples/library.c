@@ -11,19 +11,13 @@
 int main()
 {
     WDTCTL = 0x5A80 | 0x0080;   // Stop watchdog timer
-    GPIO_u_Init();
-    GPIO_t_SetUpPin(port1,pin0,output);
-    GPIO_t_SetUpPin(port1,pin6,output);
-    GPIO_t_WritePin(port1,pin0,1);
-    GPIO_t_WritePin(port1,pin6,1);
-    GPIO_t_WritePin(port1,pin0,0);
-    GPIO_t_WritePin(port1,pin6,0);
-    // DIO_v_init();
-    // (void)DIO_u_configPin(bit0, port1, output, gpio, disabled);
-    // (void)DIO_u_configPin(bit6, port1, output, gpio, disabled);
-    // (void)DIO_u_setPinState(bit0, port1, high);
-    // (void)DIO_u_setPinState(bit6, port1, high);
-    // testFunc();
+    GPIO_v_Init();
+    GPIO_v_SetUpPin(port1,pin0,output,dio);
+    GPIO_v_SetUpPin(port1,pin6,output,dio);
+    GPIO_v_WritePin(port1,pin0,1);
+    GPIO_v_WritePin(port1,pin6,1);
+    GPIO_v_WritePin(port1,pin0,0);
+    GPIO_v_WritePin(port1,pin6,0);
     while (1)
     {
         
