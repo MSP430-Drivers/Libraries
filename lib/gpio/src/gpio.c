@@ -63,7 +63,6 @@ void GPIO_v_Init(void)
 }
 
 void GPIO_v_SetUpPin(t_Port e_port, t_Pin e_pin, t_PinDir e_dir, t_FunctionSelect e_funSel)
-// void GPIO_v_SetUpPin(t_Port e_port, t_Pin e_pin, t_PinDir e_dir)
 {
   if(u_True == u_DioIsInitialized)
   {
