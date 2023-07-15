@@ -6,7 +6,6 @@ if [ $# -eq 0 ]; then
     exit 1
 fi
 
-
 packet=$1
 
 cd ..
@@ -17,13 +16,15 @@ then
     exit 1
 fi
 
-echo "Cleaning $packet packet"
+echo "Compiling $packet packet"
 
 cd lib/$packet
 
-if [ -d "build/" ] 
+if [ ! -d "build/" ] 
 then
-    rm -r build
-else 
-    echo No build directory found
+    mkdir build
 fi
+
+cd build
+cmake ..
+make
