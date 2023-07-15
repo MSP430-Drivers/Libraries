@@ -6,3 +6,6 @@
 /ccs/dvt/
 /ccs/RemoteSystemsTempFiles/
 /documentation/
+/lib/gpio/build/
+/lib/dio/build/
+/lib/platform/build/
