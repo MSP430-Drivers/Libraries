@@ -81,6 +81,12 @@ typedef enum
   high = (uint8)1u
 } t_PinState;
 
+typedef enum
+{
+  risingEdge  = (uint8)0u, ///< low-to-high transition
+  fallingEdge = (uint8)1u  ///< high-to-low transition
+} t_EdgeSelect;
+
 #ifdef __cplusplus
 }
 #endif
