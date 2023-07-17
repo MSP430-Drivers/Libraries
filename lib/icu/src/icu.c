@@ -15,10 +15,18 @@
  *********************************************************************************************************************/
 
 #include <icu.h>
+#include <msp430g2553_registers.h>
+#include <register_utils.h>
 
 #ifdef __cplusplus
 extern "C" {
 #endif
+
+void ICU_v_Init(void)
+{
+  REG_v_WriteToReg(u_P1IFG_ADDR, 0u);
+  REG_v_WriteToReg(u_P2IFG_ADDR, 0u);
+}
 
 void ICU_v_SetupISR(const t_VectorIntId e_vectorId,
                     const t_IntHandler  p_callbackFunc,
@@ -41,7 +49,7 @@ void ICU_v_SetupISR(const t_VectorIntId e_vectorId,
 
 void __attribute__((interrupt(PORT1_VECTOR))) ICU_v_port1(void)
 {
-  t_vectorTableEntry[port1].p_callbackFunc;
+  (*(t_vectorTableEntry[port1Vector].p_callbackFunc))(t_vectorTableEntry[port1Vector].p_callbackDataRef);
 }
 
 #ifdef __cplusplus

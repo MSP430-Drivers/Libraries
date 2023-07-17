@@ -24,7 +24,7 @@ extern "C" {
 #endif
 
 volatile uint16* const pu_PXIE_ADDR[2]  = { u_P1IE_ADDR, u_P2IE_ADDR };
-volatile uint16* const pu_PXIFG_ADDR[2] = { u_P1IFG_ADDR, u_P2IFG_ADDR };
+volatile uint16* const pu_PXIES_ADDR[2] = { u_P1IES_ADDR, u_P2IES_ADDR };
 
 t_DioInst DIO_v_SetInstance(t_Port e_port, t_Pin e_pin, t_PinDir e_dir)
 {
@@ -51,7 +51,7 @@ void DIO_v_PinIntEn(t_DioInst t_dio, t_EdgeSelect e_edgeMode)
   if(input == t_dio.e_dir)
   {
     REG_v_SetBit(pu_PXIE_ADDR[t_dio.e_port], t_dio.e_pin);
-    (risingEdge == e_edgeMode) ? REG_v_ClearBit(pu_PXIFG_ADDR[t_dio.e_port], t_dio.e_pin) : REG_v_SetBit(pu_PXIFG_ADDR[t_dio.e_port], t_dio.e_pin);
+    (risingEdge == e_edgeMode) ? REG_v_ClearBit(pu_PXIES_ADDR[t_dio.e_port], t_dio.e_pin) : REG_v_SetBit(pu_PXIES_ADDR[t_dio.e_port], t_dio.e_pin);
   }
   else
   {
