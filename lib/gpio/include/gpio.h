@@ -34,9 +34,9 @@ static uint8 au_portPinStat[portMax][pinMax] = { { pinNotInit } };
  *
  * \return  DataType  =  void \n
  *          Resolution = This function does not return any value.
- * 
+ *
  * \callgraph
- * \startuml 
+ * \startuml
  *  GPIO_v_Init -> u_DioIsInitialized : Check if GPIO is initialized
  *  activate u_DioIsInitialized
  *  alt GPIO not initialized
@@ -53,7 +53,7 @@ static uint8 au_portPinStat[portMax][pinMax] = { { pinNotInit } };
  *  Note over GPIO_v_Init : IED Implementation Error Detection\ndioDeinitialized
  *  end
  * \enduml
- * 
+ *
  ******************************************************************************/
 void GPIO_v_Init(void);
 
@@ -76,7 +76,7 @@ void GPIO_v_Init(void);
  *
  * \return  DataType  = void \n
  *          Resolution = This function does not return any value.
- * 
+ *
  * \callgraph
  * \startuml
  *   participant "GPIO_v_SetUpPin"
@@ -84,20 +84,20 @@ void GPIO_v_Init(void);
  *   participant "au_portPinStat"
  *   participant "REG_v_ClearBit"
  *   participant "REG_v_SetBit"
- * 
+ *
  *   activate "GPIO_v_SetUpPin"
- * 
+ *
  *   "GPIO_v_SetUpPin" -> "u_DioIsInitialized": Check if GPIO is initialized
  *   activate "u_DioIsInitialized"
  *   "u_DioIsInitialized" --> "GPIO_v_SetUpPin"
  *   deactivate "u_DioIsInitialized"
- * 
+ *
  *   alt GPIO initialized
  *     "GPIO_v_SetUpPin" -> "au_portPinStat": Check pin configuration status
  *     activate "au_portPinStat"
  *     "au_portPinStat" --> "GPIO_v_SetUpPin"
  *     deactivate "au_portPinStat"
- * 
+ *
  *     alt Pin not configured
  *       alt Pin direction is output
  *         Note over "GPIO_v_SetUpPin": Set pin as output
@@ -116,9 +116,9 @@ void GPIO_v_Init(void);
  *         "REG_v_ClearBit" --> "GPIO_v_SetUpPin"
  *         deactivate "REG_v_ClearBit"
  *       end
- * 
+ *
  *       Note over "GPIO_v_SetUpPin": Configure function select
- * 
+ *
  *       alt e_funSel equals primary
  *         "GPIO_v_SetUpPin" -> "REG_v_ClearBit": Set primary function select
  *         activate "REG_v_ClearBit"
@@ -147,23 +147,23 @@ void GPIO_v_Init(void);
  *         "REG_v_ClearBit" --> "GPIO_v_SetUpPin"
  *         deactivate "REG_v_ClearBit"
  *       end
- * 
+ *
  *       "GPIO_v_SetUpPin" -> "au_portPinStat": Update pin configuration status
  *       activate "au_portPinStat"
  *       "au_portPinStat" --> "GPIO_v_SetUpPin"
  *       deactivate "au_portPinStat"
- * 
+ *
  *     else Pin already configured
  *       Note over "GPIO_v_SetUpPin": IED Implementation Error Detection\npinDeInit
  *     end
- * 
+ *
  *   else GPIO not initialized
  *     Note over "GPIO_v_SetUpPin": IED Implementation Error Detection\ngpioNotInit
  *   end
- * 
+ *
  *   deactivate "GPIO_v_SetUpPin"
  * \enduml
- * 
+ *
  ******************************************************************************/
 void GPIO_v_SetUpPin(t_Port e_port, t_Pin e_pin, t_PinDir e_dir, t_FunctionSelect e_funSel);
 
@@ -186,9 +186,9 @@ void GPIO_v_SetUpPin(t_Port e_port, t_Pin e_pin, t_PinDir e_dir, t_FunctionSelec
  *
  * \return  DataType  = void \n
  *          Resolution = This function does not return any value.
- * 
+ *
  * \callgraph
- * \startuml 
+ * \startuml
  *  GPIO_v_ResConf -> au_portPinStat: Check pin configuration status
  *  activate au_portPinStat
  *  au_portPinStat --> GPIO_v_ResConf
@@ -218,7 +218,7 @@ void GPIO_v_SetUpPin(t_Port e_port, t_Pin e_pin, t_PinDir e_dir, t_FunctionSelec
  *  end
  *  deactivate au_portPinStat
  * \enduml
- * 
+ *
  ******************************************************************************/
 void GPIO_v_ResConf(t_Port e_port, t_Pin e_pin, t_Ren e_ren, t_ResType e_resType);
 
@@ -236,9 +236,9 @@ void GPIO_v_ResConf(t_Port e_port, t_Pin e_pin, t_Ren e_ren, t_ResType e_resType
  * \return  e_retState:      State of the pin (low/high). \n
  *                           data_type  = t_PinState  \n
  *                           resolution = N/A
- * 
+ *
  * \callgraph
- * \startuml 
+ * \startuml
  *  GPIO_t_ReadPin -> au_portPinStat: Check pin configuration status
  *  activate au_portPinStat
  *  au_portPinStat --> GPIO_t_ReadPin
@@ -258,7 +258,7 @@ void GPIO_v_ResConf(t_Port e_port, t_Pin e_pin, t_Ren e_ren, t_ResType e_resType
  *  end
  *  deactivate au_portPinStat
  * \enduml
- * 
+ *
  ******************************************************************************/
 t_PinState GPIO_t_ReadPin(t_Port e_port, t_Pin e_pin);
 
@@ -296,7 +296,7 @@ t_PinState GPIO_t_ReadPin(t_Port e_port, t_Pin e_pin);
  *  Note over GPIO_v_WritePin : IED Implementation Error Detection\ne_retVal = pinNotConf
  *  end
  * \enduml
- * 
+ *
  ******************************************************************************/
 void GPIO_v_WritePin(t_Port e_port, t_Pin e_pin, t_PinState e_pinState);
 
@@ -305,6 +305,3 @@ void GPIO_v_WritePin(t_Port e_port, t_Pin e_pin, t_PinState e_pinState);
 #endif
 
 #endif
-
-
-
