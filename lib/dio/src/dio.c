@@ -38,6 +38,7 @@ t_DioInst DIO_v_SetInstance(t_Port e_port, t_Pin e_pin, t_PinDir e_dir)
 
 void DIO_v_WriteBit(t_DioInst t_dio, t_PinState e_state)
 {
+  // Call the GPIO write pin function with the provided port, pin, and state
   GPIO_v_WritePin(t_dio.e_port, t_dio.e_pin, e_state);
 }
 
