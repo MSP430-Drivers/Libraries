@@ -38,6 +38,8 @@ t_PinState DIO_t_ReadBit(t_DioInst t_dio);
 
 void DIO_v_PinIntEn(t_DioInst t_dio, t_EdgeSelect e_edgeMode);
 
+void DIO_v_PinIntDis(t_DioInst t_dio);
+
 #ifdef __cplusplus
 }
 #endif
