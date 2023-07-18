@@ -22,6 +22,8 @@
 extern "C" {
 #endif
 
+volatile uint16* const pu_PXIFG_ADDR[2] = { u_P1IFG_ADDR, u_P1IFG_ADDR };
+
 void ICU_v_Init(void)
 {
   REG_v_WriteToReg(u_P1IFG_ADDR, 0u);
@@ -47,9 +49,14 @@ void ICU_v_SetupISR(const t_VectorIntId e_vectorId,
   }
 }
 
-void __attribute__((interrupt(PORT1_VECTOR))) ICU_v_port1(void)
+void __attribute__((interrupt(PORT1_VECTOR))) ICU_v_Port1(void)
 {
   (*(t_vectorTableEntry[port1Vector].p_callbackFunc))(t_vectorTableEntry[port1Vector].p_callbackDataRef);
+}
+
+void __attribute__((interrupt(PORT2_VECTOR))) ICU_v_Port2(void)
+{
+  (*(t_vectorTableEntry[port2Vector].p_callbackFunc))(t_vectorTableEntry[port2Vector].p_callbackDataRef);
 }
 
 #ifdef __cplusplus
