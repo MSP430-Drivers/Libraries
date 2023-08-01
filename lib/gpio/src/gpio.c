@@ -23,12 +23,14 @@ extern "C" {
 #endif
 
 static uint8           u_DioIsInitialized;
+uint8 au_portPinStat[portMax][pinMax] = { { pinNotInit } };
 volatile uint16* const pu_PXDIR_ADDR[2]  = { u_P1DIR_ADDR, u_P2DIR_ADDR };
 volatile uint16* const pu_PXREN_ADDR[2]  = { u_P1REN_ADDR, u_P2REN_ADDR };
 volatile uint16* const pu_PXOUT_ADDR[2]  = { u_P1OUT_ADDR, u_P2OUT_ADDR };
 volatile uint16* const pu_PXIN_ADDR[2]   = { u_P1IN_ADDR, u_P1IN_ADDR };
 volatile uint16* const pu_PXSEL_ADDR[2]  = { u_P1SEL_ADDR, u_P2SEL_ADDR };
 volatile uint16* const pu_PXSEL2_ADDR[2] = { u_P1SEL2_ADDR, u_P2SEL2_ADDR };
+
 
 void GPIO_v_Init(void)
 {

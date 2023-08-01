@@ -24,7 +24,7 @@
 extern "C" {
 #endif
 
-static uint8 au_portPinStat[portMax][pinMax] = { { pinNotInit } };
+extern uint8 au_portPinStat[portMax][pinMax];
 
 /*******************************************************************************
  *
