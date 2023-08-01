@@ -3,6 +3,7 @@
 #include <dio.h>
 #include <icu.h>
 #include <register_utils.h>
+#include <bcm.h>
 
 #define REG_16BITS(address) *(uint16*)address ///< De-reference for 16bits register
 #define WDTCTL REG_16BITS(0x0120u) ///< Watchdog Timer
@@ -14,9 +15,13 @@ int main()
     WDTCTL = 0x5A80 | 0x0080;   // Stop watchdog timer
     GPIO_v_Init();
     ICU_v_Init();
+    BCM_v_DCOConf(freq_8Mhz);
+    BCM_v_MCLKConf(dco,div_1);
+    BCM_v_SMCLKConf(dco,div_8);
     t_DioInst t_pb = DIO_v_SetInstance(port1,pin3,input);
     t_DioInst t_redLed = DIO_v_SetInstance(port1,pin6,output);
     t_DioInst t_greenLed = DIO_v_SetInstance(port1,pin0,output);
+    GPIO_v_SetUpPin(port1,pin4,output,primary);
     DIO_v_WriteBit(t_redLed,low);
     DIO_v_WriteBit(t_greenLed,low);
     GPIO_v_ResConf(port1,pin3,disabled,pullUp);

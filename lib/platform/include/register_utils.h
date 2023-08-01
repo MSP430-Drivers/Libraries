@@ -20,6 +20,19 @@ static inline void REG_v_WriteToReg(volatile uint16* pu_reg, uint16 u_val)
   }
 }
 
+static inline void REG_v_WriteOrReg(volatile uint16* pu_reg, uint16 u_val)
+{
+  if(pu_reg != NULL)
+  {
+    *pu_reg |= u_val;
+  }
+  else
+  {
+    // IED Implementation Error Detection
+    // nullPtr
+  }
+}
+
 static inline uint16 REG_u_ReadFromReg(volatile uint16* pu_reg)
 {
   uint16 u_retVal = 0u;
