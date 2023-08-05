@@ -8,3 +8,5 @@
 ~/Tools/clang-format/clang-format -i ../lib/dio/src/*.c
 ~/Tools/clang-format/clang-format -i ../lib/icu/include/*.h
 ~/Tools/clang-format/clang-format -i ../lib/icu/src/*.c
+~/Tools/clang-format/clang-format -i ../lib/bcm/include/*.h
+~/Tools/clang-format/clang-format -i ../lib/bcm/src/*.c
