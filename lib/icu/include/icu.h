@@ -53,22 +53,7 @@ typedef struct
   t_VectorIntId e_vectorId;
 } t_VectorTable;
 
-static t_VectorTable t_vectorTableEntry[MAX_INT_VECTOR] = {
-  {NULL, NULL,        trapVector}, //  TRAPINT
-  {NULL, NULL,       port1Vector}, //  Port 1
-  {NULL, NULL,       port2Vector}, //  Port 2
-  {NULL, NULL,       adc10Vector}, //  ADC10
-  {NULL, NULL,   usciab0txVector}, //  USCI A0/B0 Transmit
-  {NULL, NULL,   usciab0rxVector}, //  USCI A0/B0 Receive
-  {NULL, NULL,    timer0A1Vector}, //  Timer0_A CC0
-  {NULL, NULL,    timer0A0Vector}, //  Timer0_A CC1, TA0
-  {NULL, NULL,         wdtVector}, //  Watchdog Timer
-  {NULL, NULL, comparatorAVector}, //  Comparator A
-  {NULL, NULL,    timer1A1Vector}, //  Timer1_A CC1-4, TA1
-  {NULL, NULL,    timer1A0Vector}, //  Timer1_A CC0
-  {NULL, NULL,         nmiVector}, //  Non-maskable
-  {NULL, NULL,       resetVector}  //  Reset [Highest Priority]
-};
+extern t_VectorTable t_vectorTableEntry[MAX_INT_VECTOR];
 
 static inline void ICU_v_IntEn(uint16 u_intMode)
 {
