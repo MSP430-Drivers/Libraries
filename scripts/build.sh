@@ -26,5 +26,7 @@ then
 fi
 
 cd build
+export CC=~/Tools/msp430-gcc/msp430-gcc-9.3.1.11_linux64/bin/msp430-elf-gcc
+export CXX=~/Tools/msp430-gcc/msp430-gcc-9.3.1.11_linux64/bin/msp430-elf-g++
 cmake ..
 make
