@@ -64,22 +64,22 @@ static const uint16 u_LPM4 = u_SCG1 + u_SCG0 + u_OSCOFF + u_CPUOFF;
  * Basic Clock Module
  ************************************************************/
 
-static volatile uint16* const u_DCOCTL_ADDR  = (uint16*)0x0056u; ///< DCO control register
-static volatile uint16* const u_BCSCTL1_ADDR = (uint16*)0x0057u; ///< Basic clock system control 1
-static volatile uint16* const u_BCSCTL2_ADDR = (uint16*)0x0058u; ///< Basic clock system control 2
-static volatile uint16* const u_BCSCTL3_ADDR = (uint16*)0x0053u; ///< Basic clock system control 3
+static volatile uint8* const u_DCOCTL_ADDR  = (uint8*)0x0056u; ///< DCO control register
+static volatile uint8* const u_BCSCTL1_ADDR = (uint8*)0x0057u; ///< Basic clock system control 1
+static volatile uint8* const u_BCSCTL2_ADDR = (uint8*)0x0058u; ///< Basic clock system control 2
+static volatile uint8* const u_BCSCTL3_ADDR = (uint8*)0x0053u; ///< Basic clock system control 3
 
 /************************************************************
  * Calibration Data in Info Mem
  ************************************************************/
-static volatile uint16* const u_CALDCO_16MHZ_ADDR = (uint16*)0x10F8u; ///< Address for the DCOCTL
-static volatile uint16* const u_CALBC1_16MHZ_ADDR = (uint16*)0x10F9u; ///< Address for the BCSCTL1
-static volatile uint16* const u_CALDCO_12MHZ_ADDR = (uint16*)0x10FAu; ///< Address for the DCOCTL
-static volatile uint16* const u_CALBC1_12MHZ_ADDR = (uint16*)0x10FBu; ///< Address for the BCSCTL1
-static volatile uint16* const u_CALDCO_8MHZ_ADDR  = (uint16*)0x10FCu; ///< Address for the DCOCTL
-static volatile uint16* const u_CALBC1_8MHZ_ADDR  = (uint16*)0x10FDu; ///< Address for the BCSCTL1
-static volatile uint16* const u_CALDCO_1MHZ_ADDR  = (uint16*)0x10FEu; ///< Address for the DCOCTL
-static volatile uint16* const u_CALBC1_1MHZ_ADDR  = (uint16*)0x10FFu; ///< Address for the BCSCTL1
+static volatile uint8* const u_CALDCO_16MHZ_ADDR = (uint8*)0x10F8u; ///< Address for the DCOCTL
+static volatile uint8* const u_CALBC1_16MHZ_ADDR = (uint8*)0x10F9u; ///< Address for the BCSCTL1
+static volatile uint8* const u_CALDCO_12MHZ_ADDR = (uint8*)0x10FAu; ///< Address for the DCOCTL
+static volatile uint8* const u_CALBC1_12MHZ_ADDR = (uint8*)0x10FBu; ///< Address for the BCSCTL1
+static volatile uint8* const u_CALDCO_8MHZ_ADDR  = (uint8*)0x10FCu; ///< Address for the DCOCTL
+static volatile uint8* const u_CALBC1_8MHZ_ADDR  = (uint8*)0x10FDu; ///< Address for the BCSCTL1
+static volatile uint8* const u_CALDCO_1MHZ_ADDR  = (uint8*)0x10FEu; ///< Address for the DCOCTL
+static volatile uint8* const u_CALBC1_1MHZ_ADDR  = (uint8*)0x10FFu; ///< Address for the BCSCTL1
 
 /************************************************************
  * Interrupt Vectors (offset from 0xFFE0)
