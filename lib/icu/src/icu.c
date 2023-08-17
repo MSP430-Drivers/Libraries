@@ -39,12 +39,12 @@ t_VectorTable t_vectorTableEntry[MAX_INT_VECTOR] = {
   {NULL, NULL,       resetVector}  //  Reset [Highest Priority]
 };
 
-volatile uint16* const pu_PXIFG_ADDR[2] = { u_P1IFG_ADDR, u_P1IFG_ADDR };
+volatile uint8* const pu_PXIFG_ADDR[2] = { u_P1IFG_ADDR, u_P1IFG_ADDR };
 
 void ICU_v_Init(void)
 {
-  REG_v_WriteToReg(u_P1IFG_ADDR, 0u);
-  REG_v_WriteToReg(u_P2IFG_ADDR, 0u);
+  REG_SetReg8Bits(u_P1IFG_ADDR, 0u);
+  REG_SetReg8Bits(u_P2IFG_ADDR, 0u);
 }
 
 void ICU_v_SetupISR(const t_VectorIntId e_vectorId,

@@ -78,9 +78,9 @@ void BCM_v_SMCLKConf(t_SourceCLK e_srcClk, t_Divider e_div)
 void BCM_v_ACLKConf(t_Divider e_div)
 {
   // XT2 is off (bit 7)
-  REG_v_SetBit(u_BCSCTL1_ADDR, 7u);
+  REG_v_SetBit8Bits(u_BCSCTL1_ADDR, 7u);
   // LFXT1 Low frequency (bit6)
-  REG_v_ClearBit(u_BCSCTL1_ADDR, 6u);
+  REG_v_ClearBit8Bits(u_BCSCTL1_ADDR, 6u);
   // Select VLO as clk source (bit 5-4)
   // 10 VLOCLK = 2u
   REG_v_SetBitsReg8Bits(u_BCSCTL3_ADDR, 5u, 4u, 2u);

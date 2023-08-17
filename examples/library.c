@@ -39,11 +39,11 @@ int main()
 void callBack(void* data)
 {   
     t_DioInst * myInst = (t_DioInst*)data;
-    if(REG_u_ReadBit(u_P1IFG_ADDR,pin3) == high)
+    if(REG_u_GetBit8Bits(u_P1IFG_ADDR,pin3) == high)
     {
         static t_PinState value = high;
         value ^= high;
         DIO_v_WriteBit(*myInst,value);
-        REG_v_ClearBit(u_P1IFG_ADDR,pin3);
+        REG_v_ClearBit8Bits(u_P1IFG_ADDR,pin3);
     }
 }
