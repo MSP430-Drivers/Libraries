@@ -51,8 +51,8 @@ void DIO_v_PinIntEn(t_DioInst t_dio, t_EdgeSelect e_edgeMode)
 {
   if(input == t_dio.e_dir)
   {
-    REG_v_SetBit8Bits(pu_PXIE_ADDR[t_dio.e_port], t_dio.e_pin);
-    (risingEdge == e_edgeMode) ? REG_v_ClearBit8Bits(pu_PXIES_ADDR[t_dio.e_port], t_dio.e_pin) : REG_v_SetBit8Bits(pu_PXIES_ADDR[t_dio.e_port], t_dio.e_pin);
+    REG_v_SetBitIn8BitReg(pu_PXIE_ADDR[t_dio.e_port], t_dio.e_pin);
+    (risingEdge == e_edgeMode) ? REG_v_ClearBitIn8BitReg(pu_PXIES_ADDR[t_dio.e_port], t_dio.e_pin) : REG_v_SetBitIn8BitReg(pu_PXIES_ADDR[t_dio.e_port], t_dio.e_pin);
   }
   else
   {
@@ -65,9 +65,9 @@ void DIO_v_PinIntDis(t_DioInst t_dio)
 {
   if(input == t_dio.e_dir)
   {
-    if(enable == REG_u_GetBit8Bits(pu_PXIE_ADDR[t_dio.e_port], t_dio.e_pin))
+    if(enable == REG_u_GetBitIn8BitReg(pu_PXIE_ADDR[t_dio.e_port], t_dio.e_pin))
     {
-      REG_v_ClearBit8Bits(pu_PXIE_ADDR[t_dio.e_port], t_dio.e_pin);
+      REG_v_ClearBitIn8BitReg(pu_PXIE_ADDR[t_dio.e_port], t_dio.e_pin);
     }
     else
     {

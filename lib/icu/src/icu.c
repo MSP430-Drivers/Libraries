@@ -43,8 +43,8 @@ volatile uint8* const pu_PXIFG_ADDR[2] = { u_P1IFG_ADDR, u_P1IFG_ADDR };
 
 void ICU_v_Init(void)
 {
-  REG_SetReg8Bits(u_P1IFG_ADDR, 0u);
-  REG_SetReg8Bits(u_P2IFG_ADDR, 0u);
+  REG_v_Set8BitReg(u_P1IFG_ADDR, 0u);
+  REG_v_Set8BitReg(u_P2IFG_ADDR, 0u);
 }
 
 void ICU_v_SetupISR(const t_VectorIntId e_vectorId,

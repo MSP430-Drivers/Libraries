@@ -82,8 +82,8 @@ void GPIO_v_Init(void);
  *   participant "GPIO_v_SetUpPin"
  *   participant "u_DioIsInitialized"
  *   participant "au_portPinStat"
- *   participant "REG_v_ClearBit8Bits"
- *   participant "REG_v_SetBit8Bits"
+ *   participant "REG_v_ClearBitIn8BitReg"
+ *   participant "REG_v_SetBitIn8BitReg"
  *
  *   activate "GPIO_v_SetUpPin"
  *
@@ -101,51 +101,51 @@ void GPIO_v_Init(void);
  *     alt Pin not configured
  *       alt Pin direction is output
  *         Note over "GPIO_v_SetUpPin": Set pin as output
- *         "GPIO_v_SetUpPin" -> "REG_v_ClearBit8Bits": Disable pull-up resistor
- *         activate "REG_v_ClearBit8Bits"
- *         "REG_v_ClearBit8Bits" --> "GPIO_v_SetUpPin"
- *         deactivate "REG_v_ClearBit8Bits"
- *         "GPIO_v_SetUpPin" -> "REG_v_SetBit8Bits": Set pin direction as output
- *         activate "REG_v_SetBit8Bits"
- *         "REG_v_SetBit8Bits" --> "GPIO_v_SetUpPin"
- *         deactivate "REG_v_SetBit8Bits"
+ *         "GPIO_v_SetUpPin" -> "REG_v_ClearBitIn8BitReg": Disable pull-up resistor
+ *         activate "REG_v_ClearBitIn8BitReg"
+ *         "REG_v_ClearBitIn8BitReg" --> "GPIO_v_SetUpPin"
+ *         deactivate "REG_v_ClearBitIn8BitReg"
+ *         "GPIO_v_SetUpPin" -> "REG_v_SetBitIn8BitReg": Set pin direction as output
+ *         activate "REG_v_SetBitIn8BitReg"
+ *         "REG_v_SetBitIn8BitReg" --> "GPIO_v_SetUpPin"
+ *         deactivate "REG_v_SetBitIn8BitReg"
  *       else Pin direction is not output
  *         Note over "GPIO_v_SetUpPin": Set pin as input
- *         "GPIO_v_SetUpPin" -> "REG_v_ClearBit8Bits": Set pin direction as input
- *         activate "REG_v_ClearBit8Bits"
- *         "REG_v_ClearBit8Bits" --> "GPIO_v_SetUpPin"
- *         deactivate "REG_v_ClearBit8Bits"
+ *         "GPIO_v_SetUpPin" -> "REG_v_ClearBitIn8BitReg": Set pin direction as input
+ *         activate "REG_v_ClearBitIn8BitReg"
+ *         "REG_v_ClearBitIn8BitReg" --> "GPIO_v_SetUpPin"
+ *         deactivate "REG_v_ClearBitIn8BitReg"
  *       end
  *
  *       Note over "GPIO_v_SetUpPin": Configure function select
  *
  *       alt e_funSel equals primary
- *         "GPIO_v_SetUpPin" -> "REG_v_ClearBit8Bits": Set primary function select
- *         activate "REG_v_ClearBit8Bits"
- *         "REG_v_ClearBit8Bits" --> "GPIO_v_SetUpPin"
- *         deactivate "REG_v_ClearBit8Bits"
- *         "GPIO_v_SetUpPin" -> "REG_v_SetBit8Bits": Enable primary function select
- *         activate "REG_v_SetBit8Bits"
- *         "REG_v_SetBit8Bits" --> "GPIO_v_SetUpPin"
- *         deactivate "REG_v_SetBit8Bits"
+ *         "GPIO_v_SetUpPin" -> "REG_v_ClearBitIn8BitReg": Set primary function select
+ *         activate "REG_v_ClearBitIn8BitReg"
+ *         "REG_v_ClearBitIn8BitReg" --> "GPIO_v_SetUpPin"
+ *         deactivate "REG_v_ClearBitIn8BitReg"
+ *         "GPIO_v_SetUpPin" -> "REG_v_SetBitIn8BitReg": Enable primary function select
+ *         activate "REG_v_SetBitIn8BitReg"
+ *         "REG_v_SetBitIn8BitReg" --> "GPIO_v_SetUpPin"
+ *         deactivate "REG_v_SetBitIn8BitReg"
  *       else e_funSel equals secondary
- *         "GPIO_v_SetUpPin" -> "REG_v_SetBit8Bits": Enable secondary function select
- *         activate "REG_v_SetBit8Bits"
- *         "REG_v_SetBit8Bits" --> "GPIO_v_SetUpPin"
- *         deactivate "REG_v_SetBit8Bits"
- *         "GPIO_v_SetUpPin" -> "REG_v_SetBit8Bits": Enable primary function select
- *         activate "REG_v_SetBit8Bits"
- *         "REG_v_SetBit8Bits" --> "GPIO_v_SetUpPin"
- *         deactivate "REG_v_SetBit8Bits"
+ *         "GPIO_v_SetUpPin" -> "REG_v_SetBitIn8BitReg": Enable secondary function select
+ *         activate "REG_v_SetBitIn8BitReg"
+ *         "REG_v_SetBitIn8BitReg" --> "GPIO_v_SetUpPin"
+ *         deactivate "REG_v_SetBitIn8BitReg"
+ *         "GPIO_v_SetUpPin" -> "REG_v_SetBitIn8BitReg": Enable primary function select
+ *         activate "REG_v_SetBitIn8BitReg"
+ *         "REG_v_SetBitIn8BitReg" --> "GPIO_v_SetUpPin"
+ *         deactivate "REG_v_SetBitIn8BitReg"
  *       else
- *         "GPIO_v_SetUpPin" -> "REG_v_ClearBit8Bits": Disable secondary function select
- *         activate "REG_v_ClearBit8Bits"
- *         "REG_v_ClearBit8Bits" --> "GPIO_v_SetUpPin"
- *         deactivate "REG_v_ClearBit8Bits"
- *         "GPIO_v_SetUpPin" -> "REG_v_ClearBit8Bits": Disable primary function select
- *         activate "REG_v_ClearBit8Bits"
- *         "REG_v_ClearBit8Bits" --> "GPIO_v_SetUpPin"
- *         deactivate "REG_v_ClearBit8Bits"
+ *         "GPIO_v_SetUpPin" -> "REG_v_ClearBitIn8BitReg": Disable secondary function select
+ *         activate "REG_v_ClearBitIn8BitReg"
+ *         "REG_v_ClearBitIn8BitReg" --> "GPIO_v_SetUpPin"
+ *         deactivate "REG_v_ClearBitIn8BitReg"
+ *         "GPIO_v_SetUpPin" -> "REG_v_ClearBitIn8BitReg": Disable primary function select
+ *         activate "REG_v_ClearBitIn8BitReg"
+ *         "REG_v_ClearBitIn8BitReg" --> "GPIO_v_SetUpPin"
+ *         deactivate "REG_v_ClearBitIn8BitReg"
  *       end
  *
  *       "GPIO_v_SetUpPin" -> "au_portPinStat": Update pin configuration status
@@ -197,18 +197,18 @@ void GPIO_v_SetUpPin(t_Port e_port, t_Pin e_pin, t_PinDir e_dir, t_FunctionSelec
  *    alt Pin direction is input?
  *      Note over GPIO_v_ResConf: Configure resistor settings
  *      alt e_ren is enable
- *        GPIO_v_ResConf -> REG_v_SetBit8Bits: Enable pull-up resistor
- *        REG_v_SetBit8Bits --> GPIO_v_ResConf
+ *        GPIO_v_ResConf -> REG_v_SetBitIn8BitReg: Enable pull-up resistor
+ *        REG_v_SetBitIn8BitReg --> GPIO_v_ResConf
  *      else e_ren is not enable
- *        GPIO_v_ResConf -> REG_v_ClearBit8Bits: Disable pull-up resistor
- *        REG_v_ClearBit8Bits --> GPIO_v_ResConf
+ *        GPIO_v_ResConf -> REG_v_ClearBitIn8BitReg: Disable pull-up resistor
+ *        REG_v_ClearBitIn8BitReg --> GPIO_v_ResConf
  *      end
  *      alt e_resType is pullUp
- *        GPIO_v_ResConf -> REG_v_SetBit8Bits: Set pin output high for pull-up
- *        REG_v_SetBit8Bits --> GPIO_v_ResConf
+ *        GPIO_v_ResConf -> REG_v_SetBitIn8BitReg: Set pin output high for pull-up
+ *        REG_v_SetBitIn8BitReg --> GPIO_v_ResConf
  *      else e_resType is not pullUp
- *        GPIO_v_ResConf -> REG_v_ClearBit8Bits: Set pin output low for pull-down
- *        REG_v_ClearBit8Bits --> GPIO_v_ResConf
+ *        GPIO_v_ResConf -> REG_v_ClearBitIn8BitReg: Set pin output low for pull-down
+ *        REG_v_ClearBitIn8BitReg --> GPIO_v_ResConf
  *      end
  *    else Pin direction is not input
  *      Note over GPIO_v_ResConf: IED Implementation Error Detection\npinNotInput
@@ -245,9 +245,9 @@ void GPIO_v_ResConf(t_Port e_port, t_Pin e_pin, t_Ren e_ren, t_ResType e_resType
  *  alt Pin configured?
  *    au_portPinStat --> GPIO_t_ReadPin
  *    alt Pin direction is input?
- *      GPIO_t_ReadPin -> REG_u_GetBit8Bits: Read pin state
- *      REG_u_GetBit8Bits --> GPIO_t_ReadPin
- *      deactivate REG_u_GetBit8Bits
+ *      GPIO_t_ReadPin -> REG_u_GetBitIn8BitReg: Read pin state
+ *      REG_u_GetBitIn8BitReg --> GPIO_t_ReadPin
+ *      deactivate REG_u_GetBitIn8BitReg
  *      GPIO_t_ReadPin -> e_retState: Assign pin state to e_retState
  *      e_retState --> GPIO_t_ReadPin
  *    else Pin direction is not input
@@ -281,17 +281,17 @@ t_PinState GPIO_t_ReadPin(t_Port e_port, t_Pin e_pin);
  *
  * \callgraph
  * \startuml
- *  GPIO_v_WritePin -> REG_u_GetBit8Bits : Read pin direction
- *  REG_u_GetBit8Bits --> GPIO_v_WritePin : Pin direction value
- *  activate REG_u_GetBit8Bits
+ *  GPIO_v_WritePin -> REG_u_GetBitIn8BitReg : Read pin direction
+ *  REG_u_GetBitIn8BitReg --> GPIO_v_WritePin : Pin direction value
+ *  activate REG_u_GetBitIn8BitReg
  *  alt Pin direction equals output
- *  GPIO_v_WritePin -> REG_v_SetBit8Bits : Set pin state
- *  REG_v_SetBit8Bits --> GPIO_v_WritePin : Pin state set
- *  deactivate REG_v_SetBit8Bits
+ *  GPIO_v_WritePin -> REG_v_SetBitIn8BitReg : Set pin state
+ *  REG_v_SetBitIn8BitReg --> GPIO_v_WritePin : Pin state set
+ *  deactivate REG_v_SetBitIn8BitReg
  *  else Pin direction not equals output
  *  Note over GPIO_v_WritePin : IED Implementation Error Detection\npinNotoutput
  *  end
- *  deactivate REG_u_GetBit8Bits
+ *  deactivate REG_u_GetBitIn8BitReg
  *  alt Pin and port configured
  *  Note over GPIO_v_WritePin : IED Implementation Error Detection\ne_retVal = pinNotConf
  *  end
