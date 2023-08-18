@@ -10,24 +10,24 @@ extern "C" {
 /************************************************************
  * DIGITAL I/O Port1/2 Pull up / Pull down Resistors
  ************************************************************/
-static volatile uint16* const u_P1IN_ADDR   = (uint16*)0x0020u; ///< Port 1 Input Address
-static volatile uint16* const u_P1OUT_ADDR  = (uint16*)0x0021u; ///< Port 1 Output Address
-static volatile uint16* const u_P1DIR_ADDR  = (uint16*)0x0022u; ///< Port 1 Direction Address
-static volatile uint16* const u_P1IFG_ADDR  = (uint16*)0x0023u; ///< Port 1 Interrupt Flag Address
-static volatile uint16* const u_P1IES_ADDR  = (uint16*)0x0024u; ///< Port 1 Interrupt Edge Select Address
-static volatile uint16* const u_P1IE_ADDR   = (uint16*)0x0025u; ///< Port 1 Interrupt Enable Address
-static volatile uint16* const u_P1SEL_ADDR  = (uint16*)0x0026u; ///< Port 1 Port Select Address
-static volatile uint16* const u_P1SEL2_ADDR = (uint16*)0x0041u; ///< Port 1 Port Select2 Address
-static volatile uint16* const u_P1REN_ADDR  = (uint16*)0x0027u; ///< Port 1 Resistor Enable Address
-static volatile uint16* const u_P2IN_ADDR   = (uint16*)0x0028u; ///< Port 2 Input Address
-static volatile uint16* const u_P2OUT_ADDR  = (uint16*)0x0029u; ///< Port 2 Output Address
-static volatile uint16* const u_P2DIR_ADDR  = (uint16*)0x002Au; ///< Port 2 Direction Address
-static volatile uint16* const u_P2IFG_ADDR  = (uint16*)0x002Bu; ///< Port 2 Interrupt Flag Address
-static volatile uint16* const u_P2IES_ADDR  = (uint16*)0x002Cu; ///< Port 2 Interrupt Edge Select Address
-static volatile uint16* const u_P2IE_ADDR   = (uint16*)0x002Du; ///< Port 2 Interrupt Enable Address
-static volatile uint16* const u_P2SEL_ADDR  = (uint16*)0x002Eu; ///< Port 2 Port Select Address
-static volatile uint16* const u_P2SEL2_ADDR = (uint16*)0x0042u; ///< Port 2 Port Select2 Address
-static volatile uint16* const u_P2REN_ADDR  = (uint16*)0x002Fu; ///< Port 2 Resistor Enable Address
+static volatile uint8* const u_P1IN_ADDR   = (uint8*)0x0020u; ///< Port 1 Input Address
+static volatile uint8* const u_P1OUT_ADDR  = (uint8*)0x0021u; ///< Port 1 Output Address
+static volatile uint8* const u_P1DIR_ADDR  = (uint8*)0x0022u; ///< Port 1 Direction Address
+static volatile uint8* const u_P1IFG_ADDR  = (uint8*)0x0023u; ///< Port 1 Interrupt Flag Address
+static volatile uint8* const u_P1IES_ADDR  = (uint8*)0x0024u; ///< Port 1 Interrupt Edge Select Address
+static volatile uint8* const u_P1IE_ADDR   = (uint8*)0x0025u; ///< Port 1 Interrupt Enable Address
+static volatile uint8* const u_P1SEL_ADDR  = (uint8*)0x0026u; ///< Port 1 Port Select Address
+static volatile uint8* const u_P1SEL2_ADDR = (uint8*)0x0041u; ///< Port 1 Port Select2 Address
+static volatile uint8* const u_P1REN_ADDR  = (uint8*)0x0027u; ///< Port 1 Resistor Enable Address
+static volatile uint8* const u_P2IN_ADDR   = (uint8*)0x0028u; ///< Port 2 Input Address
+static volatile uint8* const u_P2OUT_ADDR  = (uint8*)0x0029u; ///< Port 2 Output Address
+static volatile uint8* const u_P2DIR_ADDR  = (uint8*)0x002Au; ///< Port 2 Direction Address
+static volatile uint8* const u_P2IFG_ADDR  = (uint8*)0x002Bu; ///< Port 2 Interrupt Flag Address
+static volatile uint8* const u_P2IES_ADDR  = (uint8*)0x002Cu; ///< Port 2 Interrupt Edge Select Address
+static volatile uint8* const u_P2IE_ADDR   = (uint8*)0x002Du; ///< Port 2 Interrupt Enable Address
+static volatile uint8* const u_P2SEL_ADDR  = (uint8*)0x002Eu; ///< Port 2 Port Select Address
+static volatile uint8* const u_P2SEL2_ADDR = (uint8*)0x0042u; ///< Port 2 Port Select2 Address
+static volatile uint8* const u_P2REN_ADDR  = (uint8*)0x002Fu; ///< Port 2 Resistor Enable Address
 
 /************************************************************
  * STATUS REGISTER BITS
@@ -37,16 +37,6 @@ static volatile uint16* const u_P2REN_ADDR  = (uint16*)0x002Fu; ///< Port 2 Resi
 #define Z (uint16)0x0002u
 #define N (uint16)0x0004u
 #define V (uint16)0x0100u
-// #define GIE    (uint16)0x0008u
-// #define CPUOFF (uint16)0x0010u
-// #define OSCOFF (uint16)0x0020u
-// #define SCG0   (uint16)0x0040u
-// #define SCG1   (uint16)0x0080u
-// #define LPM0 (CPUOFF)
-// #define LPM1 (SCG0 + CPUOFF)
-// #define LPM2 (SCG1 + CPUOFF)
-// #define LPM3 (SCG1 + SCG0 + CPUOFF)
-// #define LPM4 (SCG1 + SCG0 + OSCOFF + CPUOFF)
 
 static const uint16 u_GIE    = 0x0008u;
 static const uint16 u_CPUOFF = 0x0010u;
@@ -100,7 +90,7 @@ static volatile uint8* const u_CALBC1_1MHZ_ADDR  = (uint8*)0x10FFu; ///< Address
 #define TIMER1_A0_VECTOR   (uint8)14 //< 0xFFFA Timer1_A CC0
 #define NMI_VECTOR         (uint8)15 //< 0xFFFC Non-maskable
 #define RESET_VECTOR       (uint8)16 //< 0xFFFE Reset [Highest Priority]
-#define MAX_INT_VECTOR     (uint8)14 //<
+#define MAX_INT_VECTOR     (uint8)14 //< Max number of interrupts
 
 #ifdef __cplusplus
 }

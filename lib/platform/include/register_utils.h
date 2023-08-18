@@ -7,7 +7,8 @@
 extern "C" {
 #endif
 
-static inline void REG_v_WriteToReg(volatile uint16* pu_reg, uint16 u_val)
+// Set an 8-bit register with a value.
+static inline void REG_v_Set8BitReg(volatile uint8* pu_reg, uint8 u_val)
 {
   if(pu_reg != NULL)
   {
@@ -15,84 +16,12 @@ static inline void REG_v_WriteToReg(volatile uint16* pu_reg, uint16 u_val)
   }
   else
   {
-    // IED Implementation Error Detection
-    // nullPtr
+    // Handle null pointer error (IED Implementation Error Detection - nullPtr).
   }
 }
 
-static inline void REG_v_WriteOrReg(volatile uint8* pu_reg, uint8 u_val)
-{
-  if(pu_reg != NULL)
-  {
-    *pu_reg |= u_val;
-  }
-  else
-  {
-    // IED Implementation Error Detection
-    // nullPtr
-  }
-}
-
-static inline uint16 REG_u_ReadFromReg(volatile uint16* pu_reg)
-{
-  uint16 u_retVal = 0u;
-  if(pu_reg != NULL)
-  {
-    u_retVal = *pu_reg;
-  }
-  else
-  {
-    // IED Implementation Error Detection
-    // nullPtr
-  }
-  return u_retVal;
-}
-
-static inline void REG_v_SetBit(volatile uint16* pu_reg, uint16 u_bit)
-{
-  if(pu_reg != NULL)
-  {
-    uint16 u_mask = 1u << u_bit;
-    *pu_reg |= u_mask;
-  }
-  else
-  {
-    // IED Implementation Error Detection
-    // nullPtr
-  }
-}
-
-static inline void REG_v_ClearBit(volatile uint16* pu_reg, uint16 u_bit)
-{
-  if(NULL != pu_reg)
-  {
-    uint16 u_mask = 1 << u_bit;
-    *pu_reg &= ~u_mask;
-  }
-  else
-  {
-    // IED Implementation Error Detection
-    // nullPtr
-  }
-}
-
-static inline uint16 REG_u_ReadBit(volatile uint16* pu_reg, uint8 u_bit)
-{
-  uint16 u_retVal = 0u;
-  if(NULL != pu_reg)
-  {
-    uint16 u_mask = 1 << u_bit;
-    u_retVal      = (REG_u_ReadFromReg(pu_reg) & u_mask) >> u_bit;
-  }
-  else
-  {
-    // IED Implementation Error Detection
-    // nullPtr
-  }
-  return u_retVal;
-}
-
-static inline uint8 REG_u_GetReg8Bits(volatile uint8* pu_reg)
+// Get the value of an 8-bit register.
+static inline uint8 REG_u_Get8BitReg(volatile uint8* pu_reg)
 {
   uint8 u_retVal = 0u;
   if(pu_reg != NULL)
@@ -101,26 +30,13 @@ static inline uint8 REG_u_GetReg8Bits(volatile uint8* pu_reg)
   }
   else
   {
-    // IED Implementation Error Detection
-    // nullPtr
+    // Handle null pointer error (IED Implementation Error Detection - nullPtr).
   }
   return u_retVal;
 }
 
-static inline void REG_SetReg8Bits(volatile uint8* pu_reg, uint8 u_val)
-{
-  if(pu_reg != NULL)
-  {
-    *pu_reg = u_val;
-  }
-  else
-  {
-    // IED Implementation Error Detection
-    // nullPtr
-  }
-}
-
-static inline void REG_v_SetBitsReg8Bits(volatile uint8* pu_reg, uint8 u_msb, uint8 u_lsb, uint8 u_val)
+// Set specific bits within an 8-bit register.
+static inline void REG_v_SetBitsIn8BitReg(volatile uint8* pu_reg, uint8 u_msb, uint8 u_lsb, uint8 u_val)
 {
   if(pu_reg != NULL)
   {
@@ -134,8 +50,51 @@ static inline void REG_v_SetBitsReg8Bits(volatile uint8* pu_reg, uint8 u_msb, ui
   }
   else
   {
-    // IED Implementation Error Detection
-    // nullPtr
+    // Handle null pointer error (IED Implementation Error Detection - nullPtr).
+  }
+}
+
+// Get the value of a specific bit within an 8-bit register.
+static inline uint8 REG_u_GetBitIn8BitReg(volatile uint8* pu_reg, uint8 u_bit)
+{
+  uint8 u_retVal = 0u;
+  if(NULL != pu_reg)
+  {
+    uint16 u_mask = 1 << u_bit;
+    u_retVal      = (REG_u_Get8BitReg(pu_reg) & u_mask) >> u_bit;
+  }
+  else
+  {
+    // Handle null pointer error (IED Implementation Error Detection - nullPtr).
+  }
+  return u_retVal;
+}
+
+// Set a specific bit within an 8-bit register.
+static inline void REG_v_SetBitIn8BitReg(volatile uint8* pu_reg, uint8 u_bit)
+{
+  if(pu_reg != NULL)
+  {
+    uint8 u_mask = 1u << u_bit;
+    *pu_reg |= u_mask;
+  }
+  else
+  {
+    // Handle null pointer error (IED Implementation Error Detection - nullPtr).
+  }
+}
+
+// Clear a specific bit within an 8-bit register.
+static inline void REG_v_ClearBitIn8BitReg(volatile uint8* pu_reg, uint8 u_bit)
+{
+  if(NULL != pu_reg)
+  {
+    uint8 u_mask = 1 << u_bit;
+    *pu_reg &= ~u_mask;
+  }
+  else
+  {
+    // Handle null pointer error (IED Implementation Error Detection - nullPtr).
   }
 }
 
