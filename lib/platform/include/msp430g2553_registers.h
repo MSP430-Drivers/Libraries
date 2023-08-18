@@ -60,6 +60,20 @@ static volatile uint8* const u_BCSCTL2_ADDR = (uint8*)0x0058u; ///< Basic clock 
 static volatile uint8* const u_BCSCTL3_ADDR = (uint8*)0x0053u; ///< Basic clock system control 3
 
 /************************************************************
+ * TimerA
+ ************************************************************/
+
+static volatile uint16* const TA0CTL_ADDR   = (uint16*)0x0160u; ///< Timer_A control
+static volatile uint16* const TA0R_ADDR     = (uint16*)0x0170u; ///< Timer_A counter
+static volatile uint16* const TA0CCTL0_ADDR = (uint16*)0x0162u; ///< Timer_A capture/compare control 0
+static volatile uint16* const TA0CCR0_ADDR  = (uint16*)0x0172u; ///< Timer_A capture/compare 0
+static volatile uint16* const TA0CCTL1_ADDR = (uint16*)0x0164u; ///< Timer_A capture/compare control 1
+static volatile uint16* const TA0CCR1_ADDR  = (uint16*)0x0174u; ///< Timer_A capture/compare 1
+static volatile uint16* const TA0CCTL2_ADDR = (uint16*)0x0166u; ///< Timer_A capture/compare control 2
+static volatile uint16* const TA0CCR2_ADDR  = (uint16*)0x0176u; ///< Timer_A capture/compare 2
+static volatile uint16* const TA0IV_ADDR    = (uint16*)0x012Eu; ///< Timer_A interrupt vector
+
+/************************************************************
  * Calibration Data in Info Mem
  ************************************************************/
 static volatile uint8* const u_CALDCO_16MHZ_ADDR = (uint8*)0x10F8u; ///< Address for the DCOCTL
