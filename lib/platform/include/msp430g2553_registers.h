@@ -63,15 +63,25 @@ static volatile uint8* const u_BCSCTL3_ADDR = (uint8*)0x0053u; ///< Basic clock 
  * TimerA
  ************************************************************/
 
-static volatile uint16* const TA0CTL_ADDR   = (uint16*)0x0160u; ///< Timer_A control
-static volatile uint16* const TA0R_ADDR     = (uint16*)0x0170u; ///< Timer_A counter
-static volatile uint16* const TA0CCTL0_ADDR = (uint16*)0x0162u; ///< Timer_A capture/compare control 0
-static volatile uint16* const TA0CCR0_ADDR  = (uint16*)0x0172u; ///< Timer_A capture/compare 0
-static volatile uint16* const TA0CCTL1_ADDR = (uint16*)0x0164u; ///< Timer_A capture/compare control 1
-static volatile uint16* const TA0CCR1_ADDR  = (uint16*)0x0174u; ///< Timer_A capture/compare 1
-static volatile uint16* const TA0CCTL2_ADDR = (uint16*)0x0166u; ///< Timer_A capture/compare control 2
-static volatile uint16* const TA0CCR2_ADDR  = (uint16*)0x0176u; ///< Timer_A capture/compare 2
-static volatile uint16* const TA0IV_ADDR    = (uint16*)0x012Eu; ///< Timer_A interrupt vector
+static volatile uint16* const TA0CTL_ADDR   = (uint16*)0x0160u; ///< Timer_A0 control
+static volatile uint16* const TA0R_ADDR     = (uint16*)0x0170u; ///< Timer_A0 counter
+static volatile uint16* const TA0CCTL0_ADDR = (uint16*)0x0162u; ///< Timer_A0 capture/compare control 0
+static volatile uint16* const TA0CCR0_ADDR  = (uint16*)0x0172u; ///< Timer_A0 capture/compare 0
+static volatile uint16* const TA0CCTL1_ADDR = (uint16*)0x0164u; ///< Timer_A0 capture/compare control 1
+static volatile uint16* const TA0CCR1_ADDR  = (uint16*)0x0174u; ///< Timer_A0 capture/compare 1
+static volatile uint16* const TA0CCTL2_ADDR = (uint16*)0x0166u; ///< Timer_A0 capture/compare control 2
+static volatile uint16* const TA0CCR2_ADDR  = (uint16*)0x0176u; ///< Timer_A0 capture/compare 2
+static volatile uint16* const TA0IV_ADDR    = (uint16*)0x012Eu; ///< Timer_A0 interrupt vector
+
+static volatile uint16* const TA1CTL_ADDR   = (uint16*)0x0180u; ///< Timer_A1 control
+static volatile uint16* const TA1R_ADDR     = (uint16*)0x0190u; ///< Timer_A1 counter
+static volatile uint16* const TA1CCTL0_ADDR = (uint16*)0x0182u; ///< Timer_A1 capture/compare control 0
+static volatile uint16* const TA1CCR0_ADDR  = (uint16*)0x0192u; ///< Timer_A1 capture/compare 0
+static volatile uint16* const TA1CCTL1_ADDR = (uint16*)0x0184u; ///< Timer_A1 capture/compare control 1
+static volatile uint16* const TA1CCR1_ADDR  = (uint16*)0x0194u; ///< Timer_A1 capture/compare 1
+static volatile uint16* const TA1CCTL2_ADDR = (uint16*)0x0186u; ///< Timer_A1 capture/compare control 2
+static volatile uint16* const TA1CCR2_ADDR  = (uint16*)0x0196u; ///< Timer_A1 capture/compare 2
+static volatile uint16* const TA1IV_ADDR    = (uint16*)0x011Eu; ///< Timer_A1 interrupt vector
 
 /************************************************************
  * Calibration Data in Info Mem
