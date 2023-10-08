@@ -38,10 +38,10 @@ void GPIO_v_Init(void)
     uint8 u_indexPin;
     uint8 u_indexPort;
     // Low consumption for unused pins
-    REG_v_Set8BitReg(u_P1DIR_ADDR, input);
-    REG_v_Set8BitReg(u_P2DIR_ADDR, input);
-    REG_v_Set8BitReg(u_P1OUT_ADDR, input);
-    REG_v_Set8BitReg(u_P2OUT_ADDR, input);
+    REG_v_Set8BitReg(u_P1DIR_ADDR, e_INPUT);
+    REG_v_Set8BitReg(u_P2DIR_ADDR, e_INPUT);
+    REG_v_Set8BitReg(u_P1OUT_ADDR, e_INPUT);
+    REG_v_Set8BitReg(u_P2OUT_ADDR, e_INPUT);
 
     // Datashet recomend enable Internal resistor
     REG_v_Set8BitReg(u_P1REN_ADDR, 0xFFu);
@@ -69,7 +69,7 @@ void GPIO_v_SetUpPin(t_Port e_port, t_Pin e_pin, t_PinDir e_dir, t_FunctionSelec
   {
     if(au_portPinStat[e_port][e_pin] != pinConf)
     {
-      if(output == e_dir)
+      if(e_OUTPUT == e_dir)
       {
         REG_v_ClearBitIn8BitReg(pu_PXREN_ADDR[e_port], e_pin);
         REG_v_SetBitIn8BitReg(pu_PXDIR_ADDR[e_port], e_pin);
@@ -80,11 +80,11 @@ void GPIO_v_SetUpPin(t_Port e_port, t_Pin e_pin, t_PinDir e_dir, t_FunctionSelec
       }
       switch(e_funSel)
       {
-        case primary:
+        case e_PIN_PRIMARY:
           REG_v_ClearBitIn8BitReg(pu_PXSEL2_ADDR[e_port], e_pin);
           REG_v_SetBitIn8BitReg(pu_PXSEL_ADDR[e_port], e_pin);
           break;
-        case secondary:
+        case e_PIN_SECONDARY:
           REG_v_SetBitIn8BitReg(pu_PXSEL2_ADDR[e_port], e_pin);
           REG_v_SetBitIn8BitReg(pu_PXSEL_ADDR[e_port], e_pin);
           break;
@@ -112,10 +112,10 @@ void GPIO_v_ResConf(t_Port e_port, t_Pin e_pin, t_Ren e_ren, t_ResType e_resType
 {
   if(au_portPinStat[e_port][e_pin] == pinConf)
   {
-    if(input == (uint8)REG_u_GetBitIn8BitReg(pu_PXDIR_ADDR[e_port], e_pin))
+    if(e_INPUT == (uint8)REG_u_GetBitIn8BitReg(pu_PXDIR_ADDR[e_port], e_pin))
     {
-      (e_ren == enable) ? REG_v_SetBitIn8BitReg(pu_PXREN_ADDR[e_port], (uint16)e_pin) : REG_v_ClearBitIn8BitReg(pu_PXREN_ADDR[e_port], (uint16)e_pin);
-      (e_resType == pullUp) ? REG_v_SetBitIn8BitReg(pu_PXOUT_ADDR[e_port], (uint16)e_pin) : REG_v_ClearBitIn8BitReg(pu_PXOUT_ADDR[e_port], (uint16)e_pin);
+      (e_ren == e_RES_EN) ? REG_v_SetBitIn8BitReg(pu_PXREN_ADDR[e_port], (uint16)e_pin) : REG_v_ClearBitIn8BitReg(pu_PXREN_ADDR[e_port], (uint16)e_pin);
+      (e_resType == e_PULL_UP) ? REG_v_SetBitIn8BitReg(pu_PXOUT_ADDR[e_port], (uint16)e_pin) : REG_v_ClearBitIn8BitReg(pu_PXOUT_ADDR[e_port], (uint16)e_pin);
     }
     else
     {
@@ -132,10 +132,10 @@ void GPIO_v_ResConf(t_Port e_port, t_Pin e_pin, t_Ren e_ren, t_ResType e_resType
 
 t_PinState GPIO_t_ReadPin(t_Port e_port, t_Pin e_pin)
 {
-  t_PinState e_retState = low;
+  t_PinState e_retState = e_LOW;
   if(au_portPinStat[e_port][e_pin] == pinConf)
   {
-    if(input == (uint8)REG_u_GetBitIn8BitReg(pu_PXDIR_ADDR[e_port], e_pin))
+    if(e_INPUT == (uint8)REG_u_GetBitIn8BitReg(pu_PXDIR_ADDR[e_port], e_pin))
     {
       e_retState = REG_u_GetBitIn8BitReg(pu_PXIN_ADDR[e_port], e_pin);
     }
@@ -157,9 +157,9 @@ void GPIO_v_WritePin(t_Port e_port, t_Pin e_pin, t_PinState e_pinState)
 {
   if(au_portPinStat[e_port][e_pin] == pinConf)
   {
-    if(output == (uint8)REG_u_GetBitIn8BitReg(pu_PXDIR_ADDR[e_port], e_pin))
+    if(e_OUTPUT == (uint8)REG_u_GetBitIn8BitReg(pu_PXDIR_ADDR[e_port], e_pin))
     {
-      (e_pinState == high) ? REG_v_SetBitIn8BitReg(pu_PXOUT_ADDR[e_port], (uint16)e_pin) : REG_v_ClearBitIn8BitReg(pu_PXOUT_ADDR[e_port], (uint16)e_pin);
+      (e_pinState == e_HIGH) ? REG_v_SetBitIn8BitReg(pu_PXOUT_ADDR[e_port], (uint16)e_pin) : REG_v_ClearBitIn8BitReg(pu_PXOUT_ADDR[e_port], (uint16)e_pin);
     }
     else
     {
