@@ -10,3 +10,5 @@
 ~/Tools/clang-format/clang-format -i ../lib/icu/src/*.c
 ~/Tools/clang-format/clang-format -i ../lib/bcm/include/*.h
 ~/Tools/clang-format/clang-format -i ../lib/bcm/src/*.c
+~/Tools/clang-format/clang-format -i ../lib/wdt/include/*.h
+~/Tools/clang-format/clang-format -i ../lib/wdt/src/*.c
