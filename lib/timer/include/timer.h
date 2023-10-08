@@ -27,7 +27,7 @@ typedef enum
 {
   timerA0 = (uint8)0u,
   timerA1 = (uint8)1u,
-  TimerNC = (uint8)2u
+  timerNC = (uint8)2u
 } t_TimerChannel;
 
 typedef enum
@@ -53,7 +53,6 @@ typedef enum
 } t_TimerSlot;
 
 typedef struct
-
 {
   t_TimerChannel timer;
   t_TimerMode    mode;

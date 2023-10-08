@@ -26,11 +26,11 @@ volatile uint16* const pu_TAxR_ADDR[2]   = { TA0R_ADDR, TA1R_ADDR };
 
 void TIMER_v_Init(void)
 {
-  timersChannels[0].timer   = TimerNC;
+  timersChannels[0].timer   = timerNC;
   timersChannels[0].slot[0] = NC;
   timersChannels[0].slot[1] = NC;
   timersChannels[0].slot[2] = NC;
-  timersChannels[1].timer   = TimerNC;
+  timersChannels[1].timer   = timerNC;
   timersChannels[1].slot[0] = NC;
   timersChannels[1].slot[1] = NC;
   timersChannels[1].slot[2] = NC;
@@ -38,7 +38,7 @@ void TIMER_v_Init(void)
 
 void TIMER_v_Configure(t_TimerChannel e_timer, t_TimerMode e_mode)
 {
-  if(timersChannels[e_timer].timer != TimerNC)
+  if(timersChannels[e_timer].timer != timerNC)
   {
     timersChannels[e_timer].timer = e_timer;
     timersChannels[e_timer].mode  = e_mode;
@@ -54,6 +54,7 @@ void TIMER_v_SetInstance(t_TimerChannel e_timer, t_TimerType e_type, t_TimerSlot
 {
   if(timersChannels[e_timer].slot[e_slot] != NC)
   {
+    timersChannels[e_timer].slot[e_slot] = e_type;
   }
   else
   {
