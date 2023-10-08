@@ -17,12 +17,19 @@
 #ifndef GPIO_H
 #define GPIO_H
 
-#include <gpio_types.h>
 #include <std_types.h>
+#include <platform_types.h>
 
 #ifdef __cplusplus
 extern "C" {
 #endif
+
+typedef enum
+{
+  pinNotInit = (uint8)0u,
+  pinInit    = (uint8)1u,
+  pinConf    = (uint8)2u
+} t_PortPinStat;
 
 extern uint8 au_portPinStat[portMax][pinMax];
 
@@ -119,30 +126,30 @@ void GPIO_v_Init(void);
  *
  *       Note over "GPIO_v_SetUpPin": Configure function select
  *
- *       alt e_funSel equals primary
- *         "GPIO_v_SetUpPin" -> "REG_v_ClearBitIn8BitReg": Set primary function select
+ *       alt e_funSel equals e_PIN_PRIMARY
+ *         "GPIO_v_SetUpPin" -> "REG_v_ClearBitIn8BitReg": Set e_PIN_PRIMARY function select
  *         activate "REG_v_ClearBitIn8BitReg"
  *         "REG_v_ClearBitIn8BitReg" --> "GPIO_v_SetUpPin"
  *         deactivate "REG_v_ClearBitIn8BitReg"
- *         "GPIO_v_SetUpPin" -> "REG_v_SetBitIn8BitReg": Enable primary function select
+ *         "GPIO_v_SetUpPin" -> "REG_v_SetBitIn8BitReg": Enable e_PIN_PRIMARY function select
  *         activate "REG_v_SetBitIn8BitReg"
  *         "REG_v_SetBitIn8BitReg" --> "GPIO_v_SetUpPin"
  *         deactivate "REG_v_SetBitIn8BitReg"
- *       else e_funSel equals secondary
- *         "GPIO_v_SetUpPin" -> "REG_v_SetBitIn8BitReg": Enable secondary function select
+ *       else e_funSel equals e_PIN_SECONDARY
+ *         "GPIO_v_SetUpPin" -> "REG_v_SetBitIn8BitReg": Enable e_PIN_SECONDARY function select
  *         activate "REG_v_SetBitIn8BitReg"
  *         "REG_v_SetBitIn8BitReg" --> "GPIO_v_SetUpPin"
  *         deactivate "REG_v_SetBitIn8BitReg"
- *         "GPIO_v_SetUpPin" -> "REG_v_SetBitIn8BitReg": Enable primary function select
+ *         "GPIO_v_SetUpPin" -> "REG_v_SetBitIn8BitReg": Enable e_PIN_PRIMARY function select
  *         activate "REG_v_SetBitIn8BitReg"
  *         "REG_v_SetBitIn8BitReg" --> "GPIO_v_SetUpPin"
  *         deactivate "REG_v_SetBitIn8BitReg"
  *       else
- *         "GPIO_v_SetUpPin" -> "REG_v_ClearBitIn8BitReg": Disable secondary function select
+ *         "GPIO_v_SetUpPin" -> "REG_v_ClearBitIn8BitReg": Disable e_PIN_SECONDARY function select
  *         activate "REG_v_ClearBitIn8BitReg"
  *         "REG_v_ClearBitIn8BitReg" --> "GPIO_v_SetUpPin"
  *         deactivate "REG_v_ClearBitIn8BitReg"
- *         "GPIO_v_SetUpPin" -> "REG_v_ClearBitIn8BitReg": Disable primary function select
+ *         "GPIO_v_SetUpPin" -> "REG_v_ClearBitIn8BitReg": Disable e_PIN_PRIMARY function select
  *         activate "REG_v_ClearBitIn8BitReg"
  *         "REG_v_ClearBitIn8BitReg" --> "GPIO_v_SetUpPin"
  *         deactivate "REG_v_ClearBitIn8BitReg"
@@ -233,7 +240,7 @@ void GPIO_v_ResConf(t_Port e_port, t_Pin e_pin, t_Ren e_ren, t_ResType e_resType
  *                           data_type  = t_Pin  \n
  *                           resolution = N/A
  *
- * \return  e_retState:      State of the pin (low/high). \n
+ * \return  e_retState:      State of the pin (e_LOW/e_HIGH). \n
  *                           data_type  = t_PinState  \n
  *                           resolution = N/A
  *
