@@ -16,9 +16,15 @@
 #ifndef WDT_H
 #define WDT_H
 
+#include <std_types.h>
+
 #ifdef __cplusplus
 extern "C" {
 #endif
+
+const uint8 u_WDT_PSWR = 0x5Au;
+
+void WDT_v_Stop(void);
 
 #ifdef __cplusplus
 }

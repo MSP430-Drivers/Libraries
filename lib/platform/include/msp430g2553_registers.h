@@ -72,6 +72,11 @@ static volatile uint8* const u_CALDCO_1MHZ_ADDR  = (uint8*)0x10FEu; ///< Address
 static volatile uint8* const u_CALBC1_1MHZ_ADDR  = (uint8*)0x10FFu; ///< Address for the BCSCTL1
 
 /************************************************************
+ * Watchdog Timer +
+ ************************************************************/
+static volatile uint16* const u_WDTCTL_ADDR = (uint16*)0x0120u; ///< Watchdog/timer control
+
+/************************************************************
  * Interrupt Vectors (offset from 0xFFE0)
  * The interrupt attribute requires a constant string or a
  * literal number, and macros are a common way to achieve this.
