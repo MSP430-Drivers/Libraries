@@ -22,7 +22,7 @@
 extern "C" {
 #endif
 
-const uint8 u_WDT_PSWR = 0x5Au;
+extern const uint16 u_WDT_PSWR;
 
 void WDT_v_Stop(void);
 

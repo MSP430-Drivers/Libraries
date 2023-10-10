@@ -22,10 +22,14 @@
 extern "C" {
 #endif
 
+// pasword that needs to be include every write transaction
+const uint16 u_WDT_PSWR = 0x5A00u;
+
 void WDT_v_Stop(void)
 {
-  REG_v_SetBitsIn8BitReg(u_WDTCTL_ADDR, 15u, 8u, u_WDT_PSWR);
-  REG_v_SetBitsIn8BitReg(u_WDTCTL_ADDR, 7u, 7u, 1u);
+  // Set bit 7
+  // Watchdog timer+ hold. This bit stops the watchdog timer+
+  REG_v_Set16BitReg(u_WDTCTL_ADDR, (u_WDT_PSWR | 0x0080));
 }
 
 #ifdef __cplusplus
