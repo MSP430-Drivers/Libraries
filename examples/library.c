@@ -4,15 +4,13 @@
 #include <register_utils.h>
 #include <bcm.h>
 #include <platform_types.h>
-
-#define REG_16BITS(address) *(uint16*)address ///< De-reference for 16bits register
-#define WDTCTL REG_16BITS(0x0120u) ///< Watchdog Timer
+#include <wdt.h>
 
 void callBack(void* data);
 
 int main()
 {
-    WDTCTL = 0x5A80 | 0x0080;   // Stop watchdog timer
+    WDT_v_Stop();
     GPIO_v_Init();
     ICU_v_Init();
     BCM_v_DCOConf(e_FREQ1MHZ);

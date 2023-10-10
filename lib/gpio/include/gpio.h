@@ -17,8 +17,8 @@
 #ifndef GPIO_H
 #define GPIO_H
 
-#include <std_types.h>
 #include <platform_types.h>
+#include <std_types.h>
 
 #ifdef __cplusplus
 extern "C" {

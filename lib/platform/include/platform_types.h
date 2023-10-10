@@ -78,22 +78,22 @@ typedef enum
 
 typedef enum
 {
-  e_PIN0   = (uint8 const)0u,
-  e_PIN1   = (uint8 const)1u,
-  e_PIN2   = (uint8 const)2u,
-  e_PIN3   = (uint8 const)3u,
-  e_PIN4   = (uint8 const)4u,
-  e_PIN5   = (uint8 const)5u,
-  e_PIN6   = (uint8 const)6u,
-  e_PIN7   = (uint8 const)7u,
-  pinMax   = (uint8)8u
+  e_PIN0 = (uint8 const)0u,
+  e_PIN1 = (uint8 const)1u,
+  e_PIN2 = (uint8 const)2u,
+  e_PIN3 = (uint8 const)3u,
+  e_PIN4 = (uint8 const)4u,
+  e_PIN5 = (uint8 const)5u,
+  e_PIN6 = (uint8 const)6u,
+  e_PIN7 = (uint8 const)7u,
+  pinMax = (uint8)8u
 } t_Pin;
 
 typedef enum
 {
-  e_PORT1   = (uint8 const)0u,
-  e_PORT2   = (uint8 const)1u,
-  portMax   = (uint8)2u
+  e_PORT1 = (uint8 const)0u,
+  e_PORT2 = (uint8 const)1u,
+  portMax = (uint8)2u
 } t_Port;
 
 typedef enum
