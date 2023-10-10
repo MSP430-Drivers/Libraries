@@ -17,7 +17,7 @@
 #ifndef DIO_H
 #define DIO_H
 
-#include <gpio_types.h>
+#include <platform_types.h>
 
 #ifdef __cplusplus
 extern "C" {

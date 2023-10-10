@@ -1,9 +1,9 @@
 /**********************************************************************************************************************
- * \file bcm.h
+ * \file wdt.c
  *
  * \author  Marco Aguilar
  *
- * \date Jul-25-2023
+ * \date Oct-08-2023
  *
  * \version 1.0 \n \n
  *
@@ -11,29 +11,27 @@
  *  - Definitions
  *  - Types
  *  - Interface Prototypes
- *  which are relevant for the BCM Driver
+ *  which are relevant for the WatchDog Timer Driver
  *********************************************************************************************************************/
 
-#ifndef BCM_H
-#define BCM_H
-
-#include <platform_types.h>
-#include <std_types.h>
+#include <msp430g2553_registers.h>
+#include <register_utils.h>
+#include <wdt.h>
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-void BCM_v_DCOConf(t_Frequency e_freq);
+// pasword that needs to be include every write transaction
+const uint16 u_WDT_PSWR = 0x5A00u;
 
-void BCM_v_MCLKConf(t_SourceCLK e_srcClk, t_Divider e_div);
-
-void BCM_v_SMCLKConf(t_SourceCLK e_srcClk, t_Divider e_div);
-
-void BCM_v_ACLKConf(t_Divider e_div);
+void WDT_v_Stop(void)
+{
+  // Set bit 7
+  // Watchdog timer+ hold. This bit stops the watchdog timer+
+  REG_v_Set16BitReg(u_WDTCTL_ADDR, (u_WDT_PSWR | 0x0080));
+}
 
 #ifdef __cplusplus
 }
-#endif
-
 #endif

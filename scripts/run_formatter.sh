@@ -12,3 +12,5 @@
 ~/Tools/clang-format/clang-format -i ../lib/bcm/src/*.c
 ~/Tools/clang-format/clang-format -i ../lib/timer/include/*.h
 ~/Tools/clang-format/clang-format -i ../lib/timer/src/*.c
+~/Tools/clang-format/clang-format -i ../lib/wdt/include/*.h
+~/Tools/clang-format/clang-format -i ../lib/wdt/src/*.c

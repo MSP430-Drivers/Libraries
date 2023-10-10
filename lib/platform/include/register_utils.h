@@ -98,6 +98,19 @@ static inline void REG_v_ClearBitIn8BitReg(volatile uint8* pu_reg, uint8 u_bit)
   }
 }
 
+// Set an 16-bit register with a value.
+static inline void REG_v_Set16BitReg(volatile uint16* pu_reg, uint16 u_val)
+{
+  if(pu_reg != NULL)
+  {
+    *pu_reg = u_val;
+  }
+  else
+  {
+    // Handle null pointer error (IED Implementation Error Detection - nullPtr).
+  }
+}
+
 #ifdef __cplusplus
 }
 #endif
