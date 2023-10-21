@@ -40,7 +40,16 @@ add_subdirectory(lib/dio)
 add_subdirectory(lib/icu)
 add_subdirectory(lib/bcm)
 add_subdirectory(lib/wdt)
+add_subdirectory(lib/timer)
 
 # add_executable(Libraries src/library.c)
 add_executable(APPL${PROJECT_VERSION}.out ${SOURCES} ${SRC_DIR}/library.c)
-target_link_libraries(APPL${PROJECT_VERSION}.out gpio_lib platform_lib dio_lib icu_lib bcm_lib wdt_lib)
+target_link_libraries(APPL${PROJECT_VERSION}.out 
+                        gpio_lib 
+                        platform_lib 
+                        dio_lib 
+                        icu_lib 
+                        bcm_lib 
+                        wdt_lib 
+                        timer_lib
+                        )

@@ -48,6 +48,14 @@ typedef enum
   e_CLK_VLO = (uint8 const)2u
 } t_SourceCLK;
 
+typedef enum
+{
+  e_TACLk = (uint8 const)0u,
+  e_ACLK  = (uint8 const)1u,
+  e_SMCLK = (uint8 const)2u,
+  e_INCLK = (uint8 const)3u
+} t_Clk;
+
 /************************************************************
  * GPIO Types
  ************************************************************/

@@ -76,6 +76,11 @@ void __attribute__((interrupt(PORT2_VECTOR))) ICU_v_Port2(void)
   (*(t_vectorTableEntry[port2Vector].p_callbackFunc))(t_vectorTableEntry[port2Vector].p_callbackDataRef);
 }
 
+void __attribute__((interrupt(TIMER0_A0_VECTOR))) ICU_v_TimerA1(void)
+{
+  (*(t_vectorTableEntry[timer0A0Vector].p_callbackFunc))(t_vectorTableEntry[timer0A0Vector].p_callbackDataRef);
+}
+
 #ifdef __cplusplus
 }
 #endif
