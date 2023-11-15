@@ -158,7 +158,6 @@ static inline void REG_v_SetBitsIn16BitReg(volatile uint16* pu_reg, uint8 u_msb,
   }
 }
 
-
 // Get the value of an 16-bit register.
 static inline uint16 REG_u_Get16BitReg(volatile uint16* pu_reg)
 {

@@ -22,10 +22,12 @@
 extern "C" {
 #endif
 
-volatile uint16* const pu_TAxCTL_ADDR[2] = { TA0CTL_ADDR, TA1CTL_ADDR };
-volatile uint16* const pu_TAxR_ADDR[2]   = { TA0R_ADDR, TA1R_ADDR };
-volatile uint16* const pu_TAxCCTLx_ADDR[2][3] = {{TA0CCTL0_ADDR, TA0CCTL1_ADDR, TA0CCTL2_ADDR}, \
-                                                 {TA1CCTL0_ADDR, TA1CCTL1_ADDR, TA1CCTL2_ADDR}};
+volatile uint16* const pu_TAxCTL_ADDR[2]      = { TA0CTL_ADDR, TA1CTL_ADDR };
+volatile uint16* const pu_TAxR_ADDR[2]        = { TA0R_ADDR, TA1R_ADDR };
+volatile uint16* const pu_TAxCCTLx_ADDR[2][3] = {
+  {TA0CCTL0_ADDR, TA0CCTL1_ADDR, TA0CCTL2_ADDR},
+  {TA1CCTL0_ADDR, TA1CCTL1_ADDR, TA1CCTL2_ADDR}
+};
 
 void TIMER_v_Init(void)
 {

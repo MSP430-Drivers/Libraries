@@ -14,3 +14,4 @@
 ~/Tools/clang-format/clang-format -i ../lib/timer/src/*.c
 ~/Tools/clang-format/clang-format -i ../lib/wdt/include/*.h
 ~/Tools/clang-format/clang-format -i ../lib/wdt/src/*.c
+~/Tools/clang-format/clang-format -i ../examples/timer/*.c
