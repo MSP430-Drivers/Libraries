@@ -22,6 +22,14 @@
 extern "C" {
 #endif
 
+static void ICU_v_Timer0A0_ISR(void);
+
+static void ICU_v_Timer0A1_ISR(void);
+
+static void ICU_v_Timer1A0_ISR(void);
+
+static void ICU_v_Timer1A1_ISR(void);
+
 t_VectorTable t_vectorTableEntry[MAX_INT_VECTOR] = {
   {NULL, NULL,        trapVector}, //  TRAPINT
   {NULL, NULL,       port1Vector}, //  Port 1
@@ -74,6 +82,26 @@ void __attribute__((interrupt(PORT1_VECTOR))) ICU_v_Port1(void)
 void __attribute__((interrupt(PORT2_VECTOR))) ICU_v_Port2(void)
 {
   (*(t_vectorTableEntry[port2Vector].p_callbackFunc))(t_vectorTableEntry[port2Vector].p_callbackDataRef);
+}
+
+__attribute__((interrupt(TIMER0_A0_VECTOR))) void ICU_v_Timer0A0_ISR(void)
+{
+  (*(t_vectorTableEntry[timer0A0Vector].p_callbackFunc))(t_vectorTableEntry[timer0A0Vector].p_callbackDataRef);
+}
+
+__attribute__((interrupt(TIMER0_A1_VECTOR))) void ICU_v_Timer0A1_ISR(void)
+{
+  (*(t_vectorTableEntry[timer0A1Vector].p_callbackFunc))(t_vectorTableEntry[timer0A1Vector].p_callbackDataRef);
+}
+
+__attribute__((interrupt(TIMER1_A0_VECTOR))) void ICU_v_Timer1A0_ISR(void)
+{
+  (*(t_vectorTableEntry[timer1A0Vector].p_callbackFunc))(t_vectorTableEntry[timer1A0Vector].p_callbackDataRef);
+}
+
+__attribute__((interrupt(TIMER1_A1_VECTOR))) void ICU_v_Timer1A1_ISR(void)
+{
+  (*(t_vectorTableEntry[timer1A1Vector].p_callbackFunc))(t_vectorTableEntry[timer1A1Vector].p_callbackDataRef);
 }
 
 #ifdef __cplusplus

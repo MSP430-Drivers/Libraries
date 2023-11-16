@@ -13,17 +13,12 @@ set(PROJECT_VERSION_MINOR 0)
 set(PROJECT_VERSION_PATCH 0)
 set(PROJECT_VERSION "${PROJECT_VERSION_MAJOR}_${PROJECT_VERSION_MINOR}_${PROJECT_VERSION_PATCH}")
 
-# include_directories(lib/platform)
-
-# Sources
-set(SRC_DIR examples)
-
 set(SOURCES
-    ${SRC_DIR}/library.c
+    timer_interrupt.c
 )
 
 # Include directories
-include_directories(examples)
+include_directories(.)
 
 # Compiler flags
 set(CMAKE_C_STANDARD 99)
@@ -31,25 +26,25 @@ set(CMAKE_C_FLAGS "-mmcu=msp430g2553 -O2 -g -Wall -std=c11 -Wl,-Map=output.map")
 set(CMAKE_CXX_FLAGS "-mmcu=msp430g2553 -O2 -g -Wall -std=c11 -Wl,-Map=output.map")
 
 # Linker flags
-set(CMAKE_EXE_LINKER_FLAGS "-T ../linker/lnk_msp430g2553.cmd")
+set(CMAKE_EXE_LINKER_FLAGS "-T ../../../linker/lnk_msp430g2553.cmd")
 
 
-add_subdirectory(lib/platform)
-add_subdirectory(lib/gpio)
-add_subdirectory(lib/dio)
-add_subdirectory(lib/icu)
-add_subdirectory(lib/bcm)
-add_subdirectory(lib/wdt)
-add_subdirectory(lib/timer)
+add_subdirectory(../../lib/platform platform_lib)
+add_subdirectory(../../lib/dio dio_lib)
+add_subdirectory(../../lib/icu icu_lib)
+add_subdirectory(../../lib/bcm bcm_lib)
+add_subdirectory(../../lib/wdt wdt_lib)
+add_subdirectory(../../lib/timer timer_lib)
+add_subdirectory(../../lib/gpio gpio_lib)
 
 # add_executable(Libraries src/library.c)
-add_executable(APPL${PROJECT_VERSION}.out ${SOURCES} ${SRC_DIR}/library.c)
-target_link_libraries(APPL${PROJECT_VERSION}.out 
-                        gpio_lib 
+add_executable(TIMER${PROJECT_VERSION}.out ${SOURCES} timer_interrupt.c)
+target_link_libraries(TIMER${PROJECT_VERSION}.out 
                         platform_lib 
                         dio_lib 
                         icu_lib 
                         bcm_lib 
                         wdt_lib 
                         timer_lib
+                        gpio_lib
                         )
