@@ -14,3 +14,4 @@
 /lib/timer/build/
 /lib/wdt/build/
 /examples/timer/build
+/examples/dio/build
