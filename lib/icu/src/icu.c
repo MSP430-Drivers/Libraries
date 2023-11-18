@@ -22,6 +22,10 @@
 extern "C" {
 #endif
 
+static void ICU_v_Port1(void);
+
+static void ICU_v_Port2(void);
+
 static void ICU_v_Timer0A0_ISR(void);
 
 static void ICU_v_Timer0A1_ISR(void);
@@ -74,12 +78,12 @@ void ICU_v_SetupISR(const t_VectorIntId e_vectorId,
   }
 }
 
-void __attribute__((interrupt(PORT1_VECTOR))) ICU_v_Port1(void)
+__attribute__((interrupt(PORT1_VECTOR))) void ICU_v_Port1(void)
 {
   (*(t_vectorTableEntry[port1Vector].p_callbackFunc))(t_vectorTableEntry[port1Vector].p_callbackDataRef);
 }
 
-void __attribute__((interrupt(PORT2_VECTOR))) ICU_v_Port2(void)
+__attribute__((interrupt(PORT2_VECTOR))) void ICU_v_Port2(void)
 {
   (*(t_vectorTableEntry[port2Vector].p_callbackFunc))(t_vectorTableEntry[port2Vector].p_callbackDataRef);
 }

@@ -71,13 +71,13 @@ void GPIO_v_SetUpPin(t_Port e_port, t_Pin e_pin, t_PinDir e_dir, t_FunctionSelec
     {
       if(e_OUTPUT == e_dir)
       {
-        REG_v_ClearBitIn8BitReg(pu_PXREN_ADDR[e_port], e_pin);
         REG_v_SetBitIn8BitReg(pu_PXDIR_ADDR[e_port], e_pin);
       }
       else
       {
         REG_v_ClearBitIn8BitReg(pu_PXDIR_ADDR[e_port], e_pin);
       }
+      REG_v_ClearBitIn8BitReg(pu_PXREN_ADDR[e_port], e_pin); // disable internal resistor for both input and output dir
       switch(e_funSel)
       {
         case e_PIN_PRIMARY:
