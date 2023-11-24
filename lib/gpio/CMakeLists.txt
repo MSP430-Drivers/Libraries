@@ -4,8 +4,6 @@ project(gpio_lib)
 
 set(CMAKE_C_COMPILER $ENV{HOME}/Tools/msp430-gcc/msp430-gcc-9.3.1.11_linux64/bin/msp430-elf-gcc)
 
-set(CMAKE_C_FLAGS "-c -mmcu=msp430g2553")
-
 include_directories(../platform/include)
 
 set(SRC_DIR src)
@@ -24,7 +22,12 @@ add_library(${PROJECT_NAME} STATIC ${SOURCES})
 target_include_directories(${PROJECT_NAME} PUBLIC ${INCLUDE_DIRS})
 
 # Configure additional compilation options, if needed
-target_compile_options(${PROJECT_NAME} PRIVATE -mmcu=msp430g2553)
+target_compile_options(${PROJECT_NAME} PRIVATE 
+                                        -c 
+                                        -mmcu=msp430g2553 
+                                        -std=c11 
+                                        -Wall
+                                        )
 
 # Configure linking options, if needed
 # target_link_libraries(${PROJECT_NAME} ...)
