@@ -7,7 +7,6 @@ set(CMAKE_C_COMPILER $ENV{HOME}/Tools/msp430-gcc/msp430-gcc-9.3.1.11_linux64/bin
 set(CMAKE_C_FLAGS "-c -mmcu=msp430g2553")
 
 include_directories(../platform/include)
-include_directories(../dio/include)
 include_directories(../gpio/include)
 
 set(SRC_DIR src)

@@ -6,9 +6,6 @@
 #include <wdt.h>
 #include <timer.h>
 
-void callBack(void* data);
-void callBackTimerA0(void* data);
-
 int main()
 {
   WDT_v_Stop();

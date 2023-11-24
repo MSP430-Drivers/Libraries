@@ -4,8 +4,6 @@
 ~/Tools/clang-format/clang-format -i ../lib/gpio/include/*.h
 ~/Tools/clang-format/clang-format -i ../lib/platform/include/*.h
 ~/Tools/clang-format/clang-format -i ../lib/platform/src/*.c
-~/Tools/clang-format/clang-format -i ../lib/dio/include/*.h
-~/Tools/clang-format/clang-format -i ../lib/dio/src/*.c
 ~/Tools/clang-format/clang-format -i ../lib/icu/include/*.h
 ~/Tools/clang-format/clang-format -i ../lib/icu/src/*.c
 ~/Tools/clang-format/clang-format -i ../lib/bcm/include/*.h
@@ -15,4 +13,3 @@
 ~/Tools/clang-format/clang-format -i ../lib/wdt/include/*.h
 ~/Tools/clang-format/clang-format -i ../lib/wdt/src/*.c
 ~/Tools/clang-format/clang-format -i ../examples/timer/*.c
-~/Tools/clang-format/clang-format -i ../examples/dio/*.c

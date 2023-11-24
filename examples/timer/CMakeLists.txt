@@ -30,7 +30,6 @@ set(CMAKE_EXE_LINKER_FLAGS "-T ../../../linker/lnk_msp430g2553.cmd")
 
 
 add_subdirectory(../../lib/platform platform_lib)
-add_subdirectory(../../lib/dio dio_lib)
 add_subdirectory(../../lib/icu icu_lib)
 add_subdirectory(../../lib/bcm bcm_lib)
 add_subdirectory(../../lib/wdt wdt_lib)
@@ -41,7 +40,6 @@ add_subdirectory(../../lib/gpio gpio_lib)
 add_executable(TIMER${PROJECT_VERSION}.out ${SOURCES} timer_interrupt.c)
 target_link_libraries(TIMER${PROJECT_VERSION}.out 
                         platform_lib 
-                        dio_lib 
                         icu_lib 
                         bcm_lib 
                         wdt_lib 
