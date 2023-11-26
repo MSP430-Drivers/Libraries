@@ -66,7 +66,7 @@ void GPIO_v_Init(void)
   }
 }
 
-t_GPIO_PinDescriptor GPIO_t_NewInstance(t_Port e_port, t_Pin e_pin, t_PinDir e_pinDir, t_FunctionSelect e_funcSel, t_Ren e_res)
+t_GPIO_PinDescriptor GPIO_t_NewInstance(t_Port e_port, t_Pin e_pin, t_PinDir e_pinDir, t_FunctionSelect e_funcSel, t_Ren e_res, t_ResType e_resType)
 {
   t_GPIO_PinDescriptor t_retInstance;
   t_retInstance.e_port     = e_port;
@@ -74,6 +74,7 @@ t_GPIO_PinDescriptor GPIO_t_NewInstance(t_Port e_port, t_Pin e_pin, t_PinDir e_p
   t_retInstance.e_dir      = e_pinDir;
   t_retInstance.e_function = e_funcSel;
   t_retInstance.e_resistor = e_res;
+  t_retInstance.e_resType  = e_resType;
   return t_retInstance;
 }
 

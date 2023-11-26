@@ -13,3 +13,4 @@
 ~/Tools/clang-format/clang-format -i ../lib/wdt/include/*.h
 ~/Tools/clang-format/clang-format -i ../lib/wdt/src/*.c
 ~/Tools/clang-format/clang-format -i ../examples/timer/*.c
+~/Tools/clang-format/clang-format -i ../examples/gpio/*.c

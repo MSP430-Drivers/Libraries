@@ -74,6 +74,8 @@ extern uint8 au_portPinStat[portMax][pinMax];
  ******************************************************************************/
 void GPIO_v_Init(void);
 
+t_GPIO_PinDescriptor GPIO_t_NewInstance(t_Port e_port, t_Pin e_pin, t_PinDir e_pinDir, t_FunctionSelect e_funcSel, t_Ren e_res, t_ResType e_resType);
+
 /*******************************************************************************
  *
  * \brief This function is used to set up the configuration of a GPIO pin.
@@ -320,6 +322,9 @@ t_PinState GPIO_t_ReadPin(t_GPIO_PinDescriptor* self);
  ******************************************************************************/
 // void GPIO_v_WritePin(t_Port e_port, t_Pin e_pin, t_PinState e_pinState);
 void GPIO_v_WritePin(t_GPIO_PinDescriptor* self, t_PinState e_pinState);
+
+void GPIO_v_PinIntEn(t_GPIO_PinDescriptor* self, t_EdgeSelect e_edgeMode);
+void GPIO_v_PinIntDis(t_GPIO_PinDescriptor* self);
 
 #ifdef __cplusplus
 }
