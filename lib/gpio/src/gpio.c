@@ -34,6 +34,36 @@ volatile uint8* const pu_PXIES_ADDR[2]  = { u_P1IES_ADDR, u_P2IES_ADDR };
 uint8        au_portPinStat[portMax][pinMax] = { { pinNotInit } };
 static uint8 u_DioIsInitialized;
 
+static void GPIO_v_ResConf(t_GPIO_PinDescriptor* self);
+
+static void GPIO_v_ResConf(t_GPIO_PinDescriptor* self)
+{
+  if(e_INPUT == (uint8)REG_u_GetBitIn8BitReg(pu_PXDIR_ADDR[self->e_port], self->e_pin))
+  {
+    if(self->e_resistor == e_RES_EN)
+    {
+      REG_v_SetBitIn8BitReg(pu_PXREN_ADDR[self->e_port], (uint16)self->e_pin);
+      if(self->e_resType == e_PULL_UP)
+      {
+        REG_v_SetBitIn8BitReg(pu_PXOUT_ADDR[self->e_port], (uint16)self->e_pin);
+      }
+      else
+      {
+        REG_v_ClearBitIn8BitReg(pu_PXOUT_ADDR[self->e_port], (uint16)self->e_pin);
+      }
+    }
+    else
+    {
+      REG_v_ClearBitIn8BitReg(pu_PXREN_ADDR[self->e_port], (uint16)self->e_pin);
+    }
+  }
+  else
+  {
+    // IED Implementation Error Detection
+    // pinNotInput;
+  }
+}
+
 void GPIO_v_Init(void)
 {
   if(!u_DioIsInitialized)
@@ -122,34 +152,6 @@ void GPIO_v_SetUpPin(t_GPIO_PinDescriptor* self)
   {
     // IED Implementation Error Detection
     // gpioNotInit;
-  }
-}
-
-void GPIO_v_ResConf(t_GPIO_PinDescriptor* self)
-{
-  if(e_INPUT == (uint8)REG_u_GetBitIn8BitReg(pu_PXDIR_ADDR[self->e_port], self->e_pin))
-  {
-    if(self->e_resistor == e_RES_EN)
-    {
-      REG_v_SetBitIn8BitReg(pu_PXREN_ADDR[self->e_port], (uint16)self->e_pin);
-      if(self->e_resType == e_PULL_UP)
-      {
-        REG_v_SetBitIn8BitReg(pu_PXOUT_ADDR[self->e_port], (uint16)self->e_pin);
-      }
-      else
-      {
-        REG_v_ClearBitIn8BitReg(pu_PXOUT_ADDR[self->e_port], (uint16)self->e_pin);
-      }
-    }
-    else
-    {
-      REG_v_ClearBitIn8BitReg(pu_PXREN_ADDR[self->e_port], (uint16)self->e_pin);
-    }
-  }
-  else
-  {
-    // IED Implementation Error Detection
-    // pinNotInput;
   }
 }
 
@@ -243,6 +245,19 @@ void GPIO_v_PinIntDis(t_GPIO_PinDescriptor* self)
   {
     // IED Implementation Error Detection
     // pinNotInput;
+  }
+}
+
+void GPIO_v_DeInit(void)
+{
+  if(u_DioIsInitialized)
+  {
+    u_DioIsInitialized = u_False;
+  }
+  else
+  {
+    // IED Implementation Error Detection
+    // gpioNotInitialized;
   }
 }
 
