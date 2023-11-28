@@ -35,6 +35,7 @@ add_subdirectory(../../lib/bcm bcm_lib)
 add_subdirectory(../../lib/wdt wdt_lib)
 add_subdirectory(../../lib/timer timer_lib)
 add_subdirectory(../../lib/gpio gpio_lib)
+add_subdirectory(../../lib/utils utils_lib)
 
 # add_executable(Libraries src/library.c)
 add_executable(TIMER${PROJECT_VERSION}.out ${SOURCES} timer_interrupt.c)
@@ -45,4 +46,5 @@ target_link_libraries(TIMER${PROJECT_VERSION}.out
                         wdt_lib 
                         timer_lib
                         gpio_lib
+                        utils_lib
                         )

@@ -8,6 +8,7 @@ set(CMAKE_C_FLAGS "-c -mmcu=msp430g2553")
 
 include_directories(../platform/include)
 include_directories(../gpio/include)
+include_directories(../utils/include)
 
 set(SRC_DIR src)
 

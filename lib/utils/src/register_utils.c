@@ -1,14 +1,11 @@
-#ifndef REGISTER_UTILS_H
-#define REGISTER_UTILS_H
-
-#include <std_types.h>
+#include <register_utils.h>
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
 // Set an 8-bit register with a value.
-static inline void REG_v_Set8BitReg(volatile uint8* pu_reg, uint8 u_val)
+void REG_v_Set8BitReg(volatile uint8* pu_reg, uint8 u_val)
 {
   if(pu_reg != NULL)
   {
@@ -21,7 +18,7 @@ static inline void REG_v_Set8BitReg(volatile uint8* pu_reg, uint8 u_val)
 }
 
 // Get the value of an 8-bit register.
-static inline uint8 REG_u_Get8BitReg(volatile uint8* pu_reg)
+uint8 REG_u_Get8BitReg(volatile uint8* pu_reg)
 {
   uint8 u_retVal = 0u;
   if(pu_reg != NULL)
@@ -36,7 +33,7 @@ static inline uint8 REG_u_Get8BitReg(volatile uint8* pu_reg)
 }
 
 // Set specific bits within an 8-bit register.
-static inline void REG_v_SetBitsIn8BitReg(volatile uint8* pu_reg, uint8 u_msb, uint8 u_lsb, uint8 u_val)
+void REG_v_SetBitsIn8BitReg(volatile uint8* pu_reg, uint8 u_msb, uint8 u_lsb, uint8 u_val)
 {
   if(pu_reg != NULL)
   {
@@ -55,7 +52,7 @@ static inline void REG_v_SetBitsIn8BitReg(volatile uint8* pu_reg, uint8 u_msb, u
 }
 
 // Get the value of a specific bit within an 8-bit register.
-static inline uint8 REG_u_GetBitIn8BitReg(volatile uint8* pu_reg, uint8 u_bit)
+uint8 REG_u_GetBitIn8BitReg(volatile uint8* pu_reg, uint8 u_bit)
 {
   uint8 u_retVal = 0u;
   if(NULL != pu_reg)
@@ -71,7 +68,7 @@ static inline uint8 REG_u_GetBitIn8BitReg(volatile uint8* pu_reg, uint8 u_bit)
 }
 
 // Set a specific bit within an 8-bit register.
-static inline void REG_v_SetBitIn8BitReg(volatile uint8* pu_reg, uint8 u_bit)
+void REG_v_SetBitIn8BitReg(volatile uint8* pu_reg, uint8 u_bit)
 {
   if(pu_reg != NULL)
   {
@@ -85,7 +82,7 @@ static inline void REG_v_SetBitIn8BitReg(volatile uint8* pu_reg, uint8 u_bit)
 }
 
 // Clear a specific bit within an 8-bit register.
-static inline void REG_v_ClearBitIn8BitReg(volatile uint8* pu_reg, uint8 u_bit)
+void REG_v_ClearBitIn8BitReg(volatile uint8* pu_reg, uint8 u_bit)
 {
   if(NULL != pu_reg)
   {
@@ -99,7 +96,7 @@ static inline void REG_v_ClearBitIn8BitReg(volatile uint8* pu_reg, uint8 u_bit)
 }
 
 // Set an 16-bit register with a value.
-static inline void REG_v_Set16BitReg(volatile uint16* pu_reg, uint16 u_val)
+void REG_v_Set16BitReg(volatile uint16* pu_reg, uint16 u_val)
 {
   if(pu_reg != NULL)
   {
@@ -112,7 +109,7 @@ static inline void REG_v_Set16BitReg(volatile uint16* pu_reg, uint16 u_val)
 }
 
 // Set a specific bit within an 16-bit register.
-static inline void REG_v_SetBitIn16BitReg(volatile uint16* pu_reg, uint8 u_bit)
+void REG_v_SetBitIn16BitReg(volatile uint16* pu_reg, uint8 u_bit)
 {
   if(pu_reg != NULL)
   {
@@ -126,7 +123,7 @@ static inline void REG_v_SetBitIn16BitReg(volatile uint16* pu_reg, uint8 u_bit)
 }
 
 // Clear a specific bit within an 16-bit register.
-static inline void REG_v_ClearBitIn16BitReg(volatile uint16* pu_reg, uint8 u_bit)
+void REG_v_ClearBitIn16BitReg(volatile uint16* pu_reg, uint8 u_bit)
 {
   if(NULL != pu_reg)
   {
@@ -140,7 +137,7 @@ static inline void REG_v_ClearBitIn16BitReg(volatile uint16* pu_reg, uint8 u_bit
 }
 
 // Set specific bits within an 16-bit register.
-static inline void REG_v_SetBitsIn16BitReg(volatile uint16* pu_reg, uint8 u_msb, uint8 u_lsb, uint16 u_val)
+void REG_v_SetBitsIn16BitReg(volatile uint16* pu_reg, uint8 u_msb, uint8 u_lsb, uint16 u_val)
 {
   if(pu_reg != NULL)
   {
@@ -159,7 +156,7 @@ static inline void REG_v_SetBitsIn16BitReg(volatile uint16* pu_reg, uint8 u_msb,
 }
 
 // Get the value of an 16-bit register.
-static inline uint16 REG_u_Get16BitReg(volatile uint16* pu_reg)
+uint16 REG_u_Get16BitReg(volatile uint16* pu_reg)
 {
   uint16 u_retVal = 0u;
   if(pu_reg != NULL)
@@ -174,7 +171,7 @@ static inline uint16 REG_u_Get16BitReg(volatile uint16* pu_reg)
 }
 
 // Get the value of a specific bit within an 16-bit register.
-static inline uint16 REG_u_GetBitIn16BitReg(volatile uint16* pu_reg, uint8 u_bit)
+uint16 REG_u_GetBitIn16BitReg(volatile uint16* pu_reg, uint8 u_bit)
 {
   uint16 u_retVal = 0u;
   if(NULL != pu_reg)
@@ -191,6 +188,4 @@ static inline uint16 REG_u_GetBitIn16BitReg(volatile uint16* pu_reg, uint8 u_bit
 
 #ifdef __cplusplus
 }
-#endif
-
 #endif
