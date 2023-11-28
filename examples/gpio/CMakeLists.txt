@@ -32,6 +32,7 @@ add_subdirectory(../../lib/platform platform_lib)
 add_subdirectory(../../lib/icu icu_lib)
 add_subdirectory(../../lib/wdt wdt_lib)
 add_subdirectory(../../lib/gpio gpio_lib)
+add_subdirectory(../../lib/utils utils_lib)
 
 # add_executable(Libraries src/library.c)
 add_executable(GPIO${PROJECT_VERSION}.out ${SOURCES} gpio_example.c)
@@ -40,4 +41,5 @@ target_link_libraries(GPIO${PROJECT_VERSION}.out
                         icu_lib 
                         wdt_lib 
                         gpio_lib
+                        utils_lib
                         )
