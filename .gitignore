@@ -13,5 +13,6 @@
 /lib/bcm/build/
 /lib/timer/build/
 /lib/wdt/build/
+/lib/utils/build/
 /examples/timer/build
 /examples/gpio/build
