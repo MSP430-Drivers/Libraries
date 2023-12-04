@@ -7,7 +7,6 @@
 /ccs/RemoteSystemsTempFiles/
 /documentation/
 /lib/gpio/build/
-/lib/gpio/test/build/
 /lib/platform/build/
 /lib/icu/build/
 /lib/bcm/build/
@@ -16,3 +15,4 @@
 /lib/utils/build/
 /examples/timer/build
 /examples/gpio/build
+/test/gpio/build/
