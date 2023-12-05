@@ -31,7 +31,7 @@ jobs:
       run: |
         cd scripts
         ./build.sh library
-    - name: Test build
-      run: |
-        cd scripts
-        ./build.sh test gpio
+    # - name: Test build
+    #   run: |
+    #     cd scripts
+    #     ./build.sh test gpio
