@@ -1,4 +1,4 @@
-#include <register_utils.h>
+#include <platform_types.h>
 
 #ifdef __cplusplus
 extern "C" {

@@ -1,5 +1,4 @@
 #include <bcm.h>
-#include <dio.h>
 #include <gpio.h>
 #include <icu.h>
 #include <platform_types.h>
@@ -19,10 +18,10 @@ int main()
   BCM_v_MCLKConf(e_CLK_DCO, e_DIV1);
   BCM_v_SMCLKConf(e_CLK_DCO, e_DIV1);
 
-  t_DioInst t_timerLed = DIO_v_SetInstance(e_PORT1, e_PIN6, e_OUTPUT);
-  DIO_v_WriteBit(t_timerLed, e_LOW);
+  // t_DioInst t_timerLed = DIO_v_SetInstance(e_PORT1, e_PIN6, e_OUTPUT);
+  // DIO_v_WriteBit(t_timerLed, e_LOW);
 
-  ICU_v_SetupISR(timer0A0Vector, callBackTimerA0, &t_timerLed);
+  // ICU_v_SetupISR(timer0A0Vector, callBackTimerA0, &t_timerLed);
 
   TIMER_v_Configure(e_TIMERA0, e_UP, e_SMCLK, e_DIV1);
   TIMER_v_SetInstance(e_TIMERA0, e_COMPARE, e_SLOT0);
@@ -39,9 +38,9 @@ int main()
 
 void callBackTimerA0(void* data)
 {
-  static t_PinState value = e_LOW;
+  // static t_PinState value = e_LOW;
 
-  t_DioInst* myInst = (t_DioInst*)data;
-  value ^= e_HIGH;
-  DIO_v_WriteBit(*myInst, value);
+  // t_DioInst* myInst = (t_DioInst*)data;
+  // value ^= e_HIGH;
+  // DIO_v_WriteBit(*myInst, value);
 }

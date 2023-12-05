@@ -7,11 +7,12 @@
 /ccs/RemoteSystemsTempFiles/
 /documentation/
 /lib/gpio/build/
-/lib/dio/build/
 /lib/platform/build/
 /lib/icu/build/
 /lib/bcm/build/
 /lib/timer/build/
 /lib/wdt/build/
+/lib/utils/build/
 /examples/timer/build
-/examples/dio/build
+/examples/gpio/build
+/test/gpio/build/

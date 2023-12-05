@@ -24,6 +24,16 @@
 extern "C" {
 #endif
 
+typedef struct
+{
+  t_Port           e_port;
+  t_Pin            e_pin;
+  t_PinDir         e_dir;
+  t_FunctionSelect e_function;
+  t_Ren            e_resistor;
+  t_ResType        e_resType;
+} t_GPIO_PinDescriptor;
+
 typedef enum
 {
   pinNotInit = (uint8)0u,
@@ -63,6 +73,10 @@ extern uint8 au_portPinStat[portMax][pinMax];
  *
  ******************************************************************************/
 void GPIO_v_Init(void);
+
+void GPIO_v_DeInit(void);
+
+t_GPIO_PinDescriptor GPIO_t_NewInstance(t_Port e_port, t_Pin e_pin, t_PinDir e_pinDir, t_FunctionSelect e_funcSel, t_Ren e_res, t_ResType e_resType);
 
 /*******************************************************************************
  *
@@ -172,7 +186,7 @@ void GPIO_v_Init(void);
  * \enduml
  *
  ******************************************************************************/
-void GPIO_v_SetUpPin(t_Port e_port, t_Pin e_pin, t_PinDir e_dir, t_FunctionSelect e_funSel);
+void GPIO_v_SetUpPin(t_GPIO_PinDescriptor* self);
 
 /*******************************************************************************
  *
@@ -227,7 +241,6 @@ void GPIO_v_SetUpPin(t_Port e_port, t_Pin e_pin, t_PinDir e_dir, t_FunctionSelec
  * \enduml
  *
  ******************************************************************************/
-void GPIO_v_ResConf(t_Port e_port, t_Pin e_pin, t_Ren e_ren, t_ResType e_resType);
 
 /*******************************************************************************
  *
@@ -267,7 +280,7 @@ void GPIO_v_ResConf(t_Port e_port, t_Pin e_pin, t_Ren e_ren, t_ResType e_resType
  * \enduml
  *
  ******************************************************************************/
-t_PinState GPIO_t_ReadPin(t_Port e_port, t_Pin e_pin);
+t_PinState GPIO_t_ReadPin(t_GPIO_PinDescriptor* self);
 
 /*******************************************************************************
  *
@@ -305,7 +318,11 @@ t_PinState GPIO_t_ReadPin(t_Port e_port, t_Pin e_pin);
  * \enduml
  *
  ******************************************************************************/
-void GPIO_v_WritePin(t_Port e_port, t_Pin e_pin, t_PinState e_pinState);
+void GPIO_v_WritePin(t_GPIO_PinDescriptor* self, t_PinState e_pinState);
+
+void GPIO_v_PinIntEn(t_GPIO_PinDescriptor* self, t_EdgeSelect e_edgeMode);
+
+void GPIO_v_PinIntDis(t_GPIO_PinDescriptor* self);
 
 #ifdef __cplusplus
 }

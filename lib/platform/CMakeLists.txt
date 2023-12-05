@@ -12,7 +12,7 @@ set(SRC_DIR src)
 set(INCLUDE_DIRS ${CMAKE_CURRENT_SOURCE_DIR}/include)
 
 set(SOURCES
-    ${SRC_DIR}/register_utils.c
+    ${SRC_DIR}/platform_types.c
 )
 
 # Create static library
