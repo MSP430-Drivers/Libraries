@@ -101,6 +101,18 @@ static volatile uint8* const u_CALBC1_1MHZ_ADDR  = (uint8*)0x10FFu; ///< Address
 static volatile uint16* const u_WDTCTL_ADDR = (uint16*)0x0120u; ///< Watchdog/timer control
 
 /************************************************************
+ * ADC10
+ ************************************************************/
+static volatile uint16* const u_ADC10SA   = (uint16*)0x01BCu; //< ADC data transfer start address
+static volatile uint16* const u_ADC10MEM  = (uint16*)0x01B4u; //< ADC memory
+static volatile uint16* const u_ADC10CTL1 = (uint16*)0x01B2u; //< ADC control register 1
+static volatile uint16* const u_ADC10CTL0 = (uint16*)0x01B0u; //< ADC control register 0
+static volatile uint16* const u_ADC10AE0  = (uint16*)0x004Au; //< ADC analog enable 0
+static volatile uint16* const u_ADC10AE1  = (uint16*)0x004Bu; //< ADC analog enable 1
+static volatile uint16* const u_ADC10DTC1 = (uint16*)0x0049u; //< ADC data transfer control register 1
+static volatile uint16* const u_ADC10DTC0 = (uint16*)0x0048u; //< ADC data transfer control register 0
+
+/************************************************************
  * Interrupt Vectors (offset from 0xFFE0)
  * The interrupt attribute requires a constant string or a
  * literal number, and macros are a common way to achieve this.
