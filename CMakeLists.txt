@@ -41,6 +41,7 @@ add_subdirectory(lib/bcm)
 add_subdirectory(lib/wdt)
 add_subdirectory(lib/timer)
 add_subdirectory(lib/utils)
+add_subdirectory(lib/adc)
 
 # add_executable(Libraries src/library.c)
 add_executable(APPL${PROJECT_VERSION}.out ${SOURCES} ${SRC_DIR}/library.c)
@@ -52,4 +53,5 @@ target_link_libraries(APPL${PROJECT_VERSION}.out
                         wdt_lib 
                         timer_lib
                         utils_lib
+                        adc_lib
                         )

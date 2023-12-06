@@ -5,6 +5,7 @@
 #include <platform_types.h>
 #include <wdt.h>
 #include <timer.h>
+#include <adc.h>
 
 int main()
 {

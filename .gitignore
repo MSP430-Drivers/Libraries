@@ -13,6 +13,7 @@
 /lib/timer/build/
 /lib/wdt/build/
 /lib/utils/build/
+/lib/adc/build/
 /examples/timer/build
 /examples/gpio/build
 /test/gpio/build/
