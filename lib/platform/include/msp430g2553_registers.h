@@ -107,10 +107,10 @@ static volatile uint16* const u_ADC10SA   = (uint16*)0x01BCu; //< ADC data trans
 static volatile uint16* const u_ADC10MEM  = (uint16*)0x01B4u; //< ADC memory
 static volatile uint16* const u_ADC10CTL1 = (uint16*)0x01B2u; //< ADC control register 1
 static volatile uint16* const u_ADC10CTL0 = (uint16*)0x01B0u; //< ADC control register 0
-static volatile uint16* const u_ADC10AE0  = (uint16*)0x004Au; //< ADC analog enable 0
-static volatile uint16* const u_ADC10AE1  = (uint16*)0x004Bu; //< ADC analog enable 1
-static volatile uint16* const u_ADC10DTC1 = (uint16*)0x0049u; //< ADC data transfer control register 1
-static volatile uint16* const u_ADC10DTC0 = (uint16*)0x0048u; //< ADC data transfer control register 0
+static volatile uint8* const  u_ADC10AE0  = (uint8*)0x004Au;  //< ADC analog enable 0
+static volatile uint8* const  u_ADC10AE1  = (uint8*)0x004Bu;  //< ADC analog enable 1
+static volatile uint8* const  u_ADC10DTC1 = (uint8*)0x0049u;  //< ADC data transfer control register 1
+static volatile uint8* const  u_ADC10DTC0 = (uint8*)0x0048u;  //< ADC data transfer control register 0
 
 /************************************************************
  * Interrupt Vectors (offset from 0xFFE0)
