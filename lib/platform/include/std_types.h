@@ -31,10 +31,14 @@ typedef unsigned short int uint16;
 typedef signed long int   sint32;
 typedef unsigned long int uint32;
 
-static const uint8 u_True  = 1u;
-static const uint8 u_False = 0u;
-static const uint8 u_OK    = 0u;
-static const uint8 u_NOK   = 0u;
+static const uint8 u_True     = 1u;
+static const uint8 u_False    = 0u;
+static const uint8 u_OK       = 1u;
+static const uint8 u_NOK      = 0u;
+static const uint8 u_ENABLED  = 1u;
+static const uint8 u_DISABLED = 0u;
+static const uint8 u_ON       = 1u;
+static const uint8 u_OFF      = 0u;
 
 #ifdef __cplusplus
 }
