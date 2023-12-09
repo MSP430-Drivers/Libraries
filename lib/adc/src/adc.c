@@ -47,6 +47,13 @@ void ADC_v_EnableInterrupt()
 void ADC_v_SetChannel(t_AdcChannel e_inputCh)
 {
   REG_v_SetBitsIn16BitReg(u_ADC10CTL1, 15u, 12u, e_inputCh);
+  REG_v_SetBitIn8BitReg(u_ADC10AE0, e_inputCh);
+}
+
+void ADC_v_StartConversion(void)
+{
+  REG_v_SetBitIn16BitReg(u_ADC10CTL0, 4u);
+  REG_v_SetBitsIn16BitReg(u_ADC10CTL0, 1u, 0u, 3u);
 }
 
 #ifdef __cplusplus

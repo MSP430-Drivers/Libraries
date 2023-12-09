@@ -18,3 +18,4 @@
 ~/Tools/clang-format/clang-format -i ../lib/adc/src/*.c
 ~/Tools/clang-format/clang-format -i ../examples/timer/*.c
 ~/Tools/clang-format/clang-format -i ../examples/gpio/*.c
+~/Tools/clang-format/clang-format -i ../examples/adc/*.c

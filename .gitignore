@@ -16,4 +16,5 @@
 /lib/adc/build/
 /examples/timer/build
 /examples/gpio/build
+/examples/adc/build
 /test/gpio/build/

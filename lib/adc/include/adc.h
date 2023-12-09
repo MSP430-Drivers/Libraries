@@ -99,6 +99,8 @@ void ADC_v_EnableInterrupt();
 
 void ADC_v_SetChannel(t_AdcChannel e_inputCh);
 
+void ADC_v_StartConversion(void);
+
 #ifdef __cplusplus
 }
 #endif
